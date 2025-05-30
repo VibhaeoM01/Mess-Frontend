@@ -1,11 +1,4 @@
-html,
-body {
-  height: auto;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  .App {
+.App {
     display: flex;
     align-items: center;
     justify-content: center; 
@@ -19,13 +12,5 @@ body {
     img {
       height: 100px;
     }
-  }
-}
-
-  .homePage {
-    min-height: 100vh;
-    height: auto;
-    overflow: visible;
-    
   }
 }

@@ -6,23 +6,25 @@
   flex-direction: column;
   gap: 40px;
   height: 300px;
-   .heading{
-    font-size:50px;
-   }
+  .heading {
+    font-size: 50px;
+  }
   .showCard {
-    margin-top:25px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
 
     .grids {
-      border: 2px solid rgb(146, 102, 165);
+      border: 2px solid gray;
       border-radius: 10px;
-      width: 200px;
-      height: 150px;
+      width: 300px;
+      height: 180px;
       position: relative;
       display: flex;
+      // flex-direction: column;
+      // background-color: red;
       justify-content: center;
       align-items: center;
 
@@ -36,10 +38,26 @@
         height: 100%;
         padding: 0 10px;
       }
-
+      .numbers {
+        position: absolute;
+        top: 25px;
+        right: 130px;
+        font-size: 2rem;
+        font-weight: bold;
+        color: red;
+        background: rgb(255, 159, 159);
+        opacity: 0.5;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+      }
       .card-title {
         font-weight: 700;
-        font-size:x-large;
+        font-size: x-large;
         transition: transform 0.3s, opacity 0.3s;
         // position: absolute;
         top: 0;

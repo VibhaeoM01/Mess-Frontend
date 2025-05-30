@@ -36,10 +36,9 @@ function HeroSection() {
   return (
     <section id="home">
       <div className="heroSection">
-      {/* <div className="container" /> */}
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div className="slide" key={index} style={{backgroundImage:`url${slide.image}`}}
+          <div className="slide" key={index} style={{backgroundImage:"/public/assets/hero.jpg"}}
           >
             <h2>{slide.title}</h2>
             <p>{slide.description}</p>

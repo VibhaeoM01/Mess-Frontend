@@ -8,11 +8,17 @@
   .logo {
     height: 60px;
   }
-  .navbar__logo {
+ .gola{
+  border-radius: 50%;
+    border: 1px solid  black;
+   .navbar__logo {
+    border-radius: 50%; 
+    padding: 4px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
+ }
   .scrolllinks {
     width: 600px;
     display: flex;

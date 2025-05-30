@@ -10,9 +10,11 @@ function Navbar() {
    console.log(user);
   return (
     <div className="navbar">
-      <div className="navbar__logo">
+      <div className="gola">
+        <div className="navbar__logo">
         
-        <Link to="/"><img className="logo" src="\public\assets\logo.jpg" alt="logo"/> </Link>
+        <Link to="/"><img className="logo" src="\assets\logo.png" alt="logo"/> </Link>
+      </div>
       </div>
       <div className="scrolllinks">
         <ScrollLink className="scroll" to="Features" duration={800} smooth={true}>Features</ScrollLink>

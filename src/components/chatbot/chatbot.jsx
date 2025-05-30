@@ -23,8 +23,15 @@ export default function Chatbot() {
           )
         )
         .then(() => { 
-          window.botpressWebChat.sendEvent({ type: "show" });
-        });
+         const waitForBotpress = () => {
+    if (window.botpressWebChat) {
+      window.botpressWebChat.sendEvent({ type: "show" });
+    } else {
+      setTimeout(waitForBotpress, 100);
+    }
+  };
+  waitForBotpress();
+});
 
       loadedRef.current = true;
     }
