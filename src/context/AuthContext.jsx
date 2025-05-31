@@ -6,53 +6,65 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token,setToken]=useState(null);
-  const [loading, setLoading] = useState(true); 
-  const nav=useNavigate(); 
+  const [token, setToken] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const nav = useNavigate();
+
   useEffect(() => {
     const verifyUser = async () => {
-      const token = localStorage.getItem("token");
-      // console.log(token);
-      if (token) {
+      const storedToken = localStorage.getItem("token");
+      const storedUser = localStorage.getItem("user");
+      
+      if (storedToken && storedUser) {
         try {
           const res = await apiRequest.get("/auth/me", {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${storedToken}`,
             },
           });
-          
-          setUser(res.data.user);
-          setToken(token);
+
+          setUser(JSON.parse(storedUser));
+          setToken(storedToken);
+          setIsAuthenticated(true);
         } catch (err) {
           console.log("Token invalid or expired");
-          localStorage.removeItem("token");
           logout();
-          setUser(null);
         }
+      } else {
+        setUser(null);
+        setToken(null);
+        setIsAuthenticated(false);
       }
       setLoading(false);
     };
 
     verifyUser();
   }, []);
- 
+
   const login = (userData, tokenData) => {
     localStorage.setItem("token", tokenData);
     localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("userType", userData.role);
+    localStorage.setItem("loggedIn", "true");
     setUser(userData);
     setToken(tokenData);
+    setIsAuthenticated(true);
   };
 
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    setUser(null);  
+    localStorage.removeItem("userType");
+    localStorage.removeItem("loggedIn");
+    setUser(null);
     setToken(null);
-    nav('/');
+    setIsAuthenticated(false);
+    nav("/");
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, token, login, logout, loading, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

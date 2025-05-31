@@ -16,11 +16,13 @@ function Navbar() {
         <Link to="/"><img className="logo" src="\assets\logo.png" alt="logo"/> </Link>
       </div>
       </div>
-      <div className="scrolllinks">
+      {!user && <div className="scrolllinks">
         <ScrollLink className="scroll" to="Features" duration={800} smooth={true}>Features</ScrollLink>
         <ScrollLink className="scroll" to="Faqs" duration={800} smooth={true}>FAQs</ScrollLink>
         <ScrollLink className="scroll" to="contact" duration={800} smooth={true}>Contact Us</ScrollLink>
       </div>
+
+      }
      <div className="buttons">
      
         {user ? (

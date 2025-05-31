@@ -8,12 +8,7 @@ function MenuCard({ menu }) {
   const [comment, setComment] = useState("");
   const [success, setSuccess] = useState(null);
 
-  const photos = {
-    breakfast: { img: "../public/assets/images/menu/1.jpg" },
-    lunch: { img: "../public/assets/images/menu/2.jpg" },
-    snacks: { img: "../public/assets/images/menu/3.jpg" },
-    dinner: { img: "../public/assets/images/menu/1.jpg" }
-  };
+  
 
   if (!menu) return <div>No menu found</div>;
 
@@ -79,13 +74,21 @@ function MenuCard({ menu }) {
     }
   };
 
+
+  const photos = {
+    breakfast: { img: "/assets/1.jpg" },
+    lunch: { img: "/assets/2.jpg" },
+    snacks: { img: "/assets/3.jpg" },
+    dinner: { img: "/assets/1.jpg" }
+  };
+  
   return (
     <div className="menuCard">
       <div className="image-container">
         <img 
           className="image" 
-          src=""
-          alt=""
+          src={photos[menu.mealType.toLowerCase()]?.img || "/assets/1.jpg"}
+          alt={`${menu.mealType} menu`}
         />
       </div>
       <h2 className="mealType">{menu.mealType}</h2>

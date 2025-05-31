@@ -1,0 +1,75 @@
+.main1 {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+height: 370px;
+  margin-top: 150px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    width: 80%;
+    h1,
+    h2 {
+      text-align: center;
+    }
+    .ImpactStudent {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .impact {
+        .stats-grid {
+          margin-left: 30px;
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+
+          .stats {
+            background-color: red;
+            width: 80%;
+            height: 100%;
+            border: 1px solid black;
+            padding: 10px;
+            background: #f9f9f9;
+            transition: transform 0.1s ease, border 0.3s ease;
+            .value {
+              text-align: center;
+              font-size: 30px;
+              font-weight: bold;
+              color: rgb(249, 82, 82);
+            }&:hover{
+          border: 1px solid red;
+          transform: scale(1.1);
+          background-color: rgb(253, 210, 210);
+        }
+          }
+           
+        }
+       
+      }
+      .studentsay {
+        width: 100%;
+        .comments{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .box{
+            padding: 10px;
+            margin-top: 30px;
+            align-items: center;
+            .details{
+              padding: 4px;
+            }
+            .comment{
+            font-weight: bold;
+          }
+          }
+        }
+      }
+    }
+  }
+}
