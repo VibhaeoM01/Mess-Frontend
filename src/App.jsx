@@ -8,7 +8,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./Routes/Login/Login";
 import Signup from "./Routes/Signup/signup";
-import "./app.scss";
+import "./App.scss";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
  
 function App() {
