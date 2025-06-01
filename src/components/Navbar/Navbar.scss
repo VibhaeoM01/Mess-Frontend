@@ -32,7 +32,24 @@
       }
     }
   }
+  
   .buttons {
+    .StudentRedirectButton
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 10px;
+    background-color: greenyellow;
+    padding: 10px 10px;
+    border-radius: 20px;
+    border:2px solid rgb(139, 231, 1);
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
     display: flex;
     border-radius: 10px;
     gap: 20px;

@@ -21,7 +21,7 @@ function Impact() {
           "http://localhost:5000/api/feedbacks/feedback",
           config
         );
-        console.log("API response:", Value.data);
+        // console.log("API response:", Value.data);
         setVal(Array.isArray(Value.data.data) ? Value.data.data : []);
       } catch (err) {
         console.log(err);

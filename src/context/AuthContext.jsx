@@ -7,7 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const nav = useNavigate();
 
@@ -52,18 +52,23 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(true);
   };
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    localStorage.removeItem("userType");
-    localStorage.removeItem("loggedIn");
-    setUser(null);
-    setToken(null);
-    setIsAuthenticated(false);
-    nav("/");
+    const logout = () => {
+    setLoading(true);  
+    setTimeout(() => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      localStorage.removeItem("userType");
+      localStorage.removeItem("loggedIn");
+      setUser(null);
+      setToken(null);
+      setIsAuthenticated(false);
+      setLoading(false);  //after 1.2sec this will happenn
+      nav("/");
+    }, 400); 
   };
 
   return (
+    
     <AuthContext.Provider value={{ user, token, login, logout, loading, isAuthenticated }}>
       {children}
     </AuthContext.Provider>

@@ -6,18 +6,21 @@ function Contactusform() {
   const [name, setName] = useState("");
   const [email, setMail] = useState("");
   const [phone, setPhone] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/contact", { name, email, phone });
+      await axios.post("http://localhost:5000/api/contact", { name, email, phone });
       setSuccess(true);
-      setName(null);
-      setMail(null);
-      setPhone(null);
+      setName("");
+      setMail("");
+      setPhone("");
       console.log("Submitted");
     } catch (err) { 
+      setSuccess(false);
+      setTimeout(()=>setSuccess(null),2000); //after 2 sec, setsuccess will be null
+      console.log(err);
       console.log("Some error");
     }
   };
@@ -35,6 +38,7 @@ function Contactusform() {
                 type="text"
                 placeholder="Enter your name"
                 value={name}
+                required
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -46,6 +50,7 @@ function Contactusform() {
                 type="email"
                 placeholder="Enter your email"
                 value={email}
+                required
                 onChange={(e) => setMail(e.target.value)}
               />
             </div>
@@ -57,12 +62,14 @@ function Contactusform() {
                 type="tel"
                 placeholder="Enter your phone number"
                 value={phone}
+                required
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
 
             <button type="submit">Submit</button>
             {success && <p>Form Submitted Successfully</p>}
+            {success==false && <p>Internal Error</p>}
           </form>
         </div>
       </div>

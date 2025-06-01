@@ -23,8 +23,11 @@ function Navbar() {
       </div>
 
       }
+          
      <div className="buttons">
-     
+       {user && user.role === "student"  && location.pathname !== "/student" && (
+        <button className="StudentRedirectButton" onClick={() => navigate("/student")}>Student Page</button>
+      )}
         {user ? (
           <>
             <div className="hello">
