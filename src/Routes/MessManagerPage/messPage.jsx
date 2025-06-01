@@ -98,6 +98,9 @@ function MessPage() {
         )}
       </div>
       <div className="container">
+        {Allmenus.length==0 && <div className="stats" onClick={() => nav("/mess_manager/stats")}>
+          Add Menu
+        </div> }
         {" "}
         <div className="stats" onClick={() => nav("/mess_manager/stats")}>
           Stats

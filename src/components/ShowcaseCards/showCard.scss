@@ -1,3 +1,4 @@
+@import "../../responsive.scss";
 .main {
   background-color: white;
   margin-top: 100px;
@@ -7,6 +8,8 @@
   flex-direction: column;
   gap: 40px;
   height: 430px;
+  height:fit-content;
+  padding: 50px 0px;
   .heading {
     font-size: 50px;
   }
@@ -16,6 +19,10 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    @include sm{
+        display: flex;
+        flex-direction: column;
+      }
 
     .grids {
       border: 2px solid gray;
@@ -23,11 +30,10 @@
       width: 300px;
       height: 180px;
       position: relative;
-      display: flex;
-      // flex-direction: column;
-      // background-color: red;
+      display: flex; 
       justify-content: center;
       align-items: center;
+      
 
       .card-title,
       .card-desc {

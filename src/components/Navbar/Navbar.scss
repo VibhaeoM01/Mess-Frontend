@@ -1,3 +1,4 @@
+@import "../../responsive.scss";
 .navbar {
   border-bottom: 1px solid gray;
   padding: 0 50px;
@@ -8,21 +9,25 @@
   .logo {
     height: 60px;
   }
- .gola{
-  border-radius: 50%;
-    border: 1px solid  black;
-   .navbar__logo {
-    border-radius: 50%; 
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  .gola {
+    border-radius: 50%;
+    border: 1px solid black;
+    .navbar__logo {
+      border-radius: 50%;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
- }
+
   .scrolllinks {
     width: 600px;
     display: flex;
     justify-content: space-around;
+    @include sm {
+      display: none;
+    }
     .scroll {
       font-weight: 800;
       transition: all 0.4s ease-out;
@@ -32,28 +37,33 @@
       }
     }
   }
-  
+
   .buttons {
-    .StudentRedirectButton
-  {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 90px;
-    height: 10px;
-    background-color: greenyellow;
-    padding: 10px 10px;
-    border-radius: 20px;
-    border:2px solid rgb(139, 231, 1);
-    transition: transform 0.3s ease;
-    &:hover {
-      transform: scale(1.08);
+    .StudentRedirectButton {
+      @include sm{
+        display: none;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 50px;
+      background-color: greenyellow;
+      padding: 10px 10px;
+      border-radius: 20px;
+      border: 2px solid rgb(139, 231, 1);
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.08);
+      }
     }
-  }
     display: flex;
     border-radius: 10px;
     gap: 20px;
     text-align: center;
+
     .hello {
       display: flex;
       align-items: center;
@@ -62,14 +72,90 @@
         font-weight: bold;
       }
     }
-    button {
-      all: unset; /* Resets all default styles */
+    .button {
+      @include sm {
+        display: none;
+      }
+      all: unset;
       height: 30px;
       padding: 2px 10px;
       width: 60px;
       border-radius: 10px;
       background-color: rgb(235, 184, 90);
-      cursor: pointer; /* Add pointer cursor for better UX */
+      cursor: pointer;
+    }
+    .hamburger {
+      border: none;
+      display: none;
+      z-index: 2;
+      background-color: black;
+      border-radius: 50%;
+      img {
+        height: 50px;
+      }
+
+      @include sm {
+        display: block;
+      }
+    }
+    .slide {
+      position: absolute;
+      background-color: black;
+      color: white;
+      height: 50vh;
+      width: 50%;
+      top: 0;
+      right: -50%;
+      transition: all 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      z-index: 1;
+
+      &.active {
+        right: 0;
+      }
+      .StudentRedirectButton1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 40px;
+        margin: 20px;
+        background-color: greenyellow;
+        padding: 10px 10px;
+        border-radius: 20px;
+        border: 2px solid rgb(139, 231, 1);
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.08);
+        }
+      }
+      .hello1 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .harm {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .button1 {
+        @include sm {
+          gap: 10px;
+          all: unset;
+          height: 30px;
+          padding: 5px 30px;
+          width: 60px;
+          border-radius: 10px;
+          background-color: rgb(235, 184, 90);
+          cursor: pointer;
+        }
+      }
     }
   }
 }

@@ -1,5 +1,9 @@
+@import "../../responsive.scss";
 .messPage {
   padding: 100px;
+  @include sm{
+    padding: 30px;
+  }
   .container {
     display: flex;
     justify-content: end;
@@ -21,6 +25,10 @@
     }
     td,
     th {
+      @include sm{  
+        font-size: small;
+        padding: 0%;
+      }
       padding: 10px;
     }
   }
@@ -30,8 +38,12 @@
       padding: 20px;
     }
     form {
+      @include sm{
+        font-size: small;
+      }
       margin-top: 20px;
       display: flex;
+      flex-direction: column;
       gap: 10px;
       margin-left: 20px;
       select {
@@ -40,12 +52,18 @@
       }
       input {
         width: 250px;
+        @include sm{
+          height: 50px;
+        }
         &:focus {
           outline: none;
           box-shadow: none;
         }
       }
       button {
+        @include sm{
+          width: 100px;
+        }
         color: white;
         border: none;
         padding: 10px;
@@ -59,6 +77,7 @@
     margin: 60px 20px;
     ul{
       display: flex;
+      flex-direction: column;
       gap: 20px;
       padding: 10px;
       li{

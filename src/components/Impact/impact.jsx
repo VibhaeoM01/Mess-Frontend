@@ -50,6 +50,7 @@ function Impact() {
             ))}
           </div>
         </div>
+        <hr />
         <div className="studentsay">
           <h2> Student Testimonials</h2>
           <div className="comments">

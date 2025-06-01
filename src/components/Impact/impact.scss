@@ -1,15 +1,20 @@
+@import "../../responsive.scss";
 .main1 {
   display: flex;
+  padding: 40px;
   background-color: white;
+  @include sm {
+    height: fit-content;
+  }
   align-items: center;
   justify-content: center;
-height: 370px;
+  height: 370px;
   margin-top: 150px;
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     width: 80%;
     h1,
     h2 {
@@ -19,14 +24,27 @@ height: 370px;
       margin-top: 40px;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      display: flex;
+      @include sm {
+        gap: 40px;
+        flex-direction: column;
+      }
+
       .impact {
+        width: 50%;
+        @include sm{
+          width: 100%;
+        }
+        height: fit-content;
         .stats-grid {
           margin-left: 30px;
           margin-top: 30px;
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 10px;
-
+          @include sm{
+            width: 100%;
+          }
           .stats {
             background-color: red;
             width: 80%;
@@ -40,33 +58,35 @@ height: 370px;
               font-size: 30px;
               font-weight: bold;
               color: rgb(249, 82, 82);
-            }&:hover{
-          border: 1px solid red;
-          transform: scale(1.1);
-          background-color: rgb(253, 210, 210);
-        }
+            }
+            &:hover {
+              border: 1px solid red;
+              transform: scale(1.1);
+              background-color: rgb(253, 210, 210);
+            }
           }
-           
         }
-       
       }
       .studentsay {
-        width: 100%;
-        .comments{
+        width: 60%;
+        @include sm{
+          width: 100%;
+        }
+        .comments {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          .box{
+          .box {
             padding: 10px;
             margin-top: 30px;
             align-items: center;
-            .details{
+            .details {
               padding: 4px;
             }
-            .comment{
-            font-weight: bold;
-          }
+            .comment {
+              font-weight: bold;
+            }
           }
         }
       }
