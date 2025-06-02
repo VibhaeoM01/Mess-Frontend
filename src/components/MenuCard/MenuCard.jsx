@@ -25,7 +25,8 @@ function MenuCard({ menu }) {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/feedbacks/eat/${menu._id}`,
+        // `http://localhost:5000/api/feedbacks/eat/${menu._id}`,  // Local development URL
+        `https://mess-backend-01.onrender.com/api/feedbacks/eat/${menu._id}`,  // Deployed URL
         { willEat },
         {
           headers: {
@@ -51,7 +52,8 @@ function MenuCard({ menu }) {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        `http://localhost:5000/api/feedbacks/${menu._id}`,
+        // `http://localhost:5000/api/feedbacks/${menu._id}`,  // Local development URL
+        `https://mess-backend-01.onrender.com/api/feedbacks/${menu._id}`,  // Deployed URL
         { comment },
         {
           headers: {

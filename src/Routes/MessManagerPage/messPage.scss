@@ -77,8 +77,11 @@
     margin: 60px 20px;
     ul {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      @include sm{
+        flex-direction: column;
+        gap: 20px;
+      }
+      gap: 60px;
       padding: 10px;
       li {
         padding: 5px;

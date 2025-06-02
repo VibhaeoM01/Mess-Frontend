@@ -18,8 +18,10 @@ function StudentPage() {
           : {};
 
         const [todayRes, allRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/menus", config),
-          axios.get("http://localhost:5000/api/menus/all", config),
+          // axios.get("http://localhost:5000/api/menus", config),  // Local development URL
+          axios.get("https://mess-backend-01.onrender.com/api/menus", config),  // Deployed URL
+          // axios.get("http://localhost:5000/api/menus/all", config),  // Local development URL
+          axios.get("https://mess-backend-01.onrender.com/api/menus/all", config),  // Deployed URL
         ]);
         setMenus(todayRes.data);
         setAllMenus(allRes.data);

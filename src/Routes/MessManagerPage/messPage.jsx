@@ -22,25 +22,29 @@ function MessPage() {
           ? { headers: { Authorization: `Bearer ${token}` } }
           : {};
         const allMenusRes = await axios.get(
-          "http://localhost:5000/api/menus/all",
+          // "http://localhost:5000/api/menus/all",  // Local development URL
+          "https://mess-backend-01.onrender.com/api/menus/all",  // Deployed URL
           config
         );
         setAllmenus(Array.isArray(allMenusRes.data) ? allMenusRes.data : []);
 
         const mealCountsRes = await axios.get(
-          "http://localhost:5000/api/feedbacks/count",
+          // "http://localhost:5000/api/feedbacks/count",  // Local development URL
+          "https://mess-backend-01.onrender.com/api/feedbacks/count",  // Deployed URL
           config
         );
         setMealCounts(mealCountsRes.data.data);
 
         const todayRes = await axios.get(
-          "http://localhost:5000/api/menus",
+          // "http://localhost:5000/api/menus",  // Local development URL
+          "https://mess-backend-01.onrender.com/api/menus",  // Deployed URL
           config
         );
         setMenus(todayRes.data);
 
         const feedbacks = await axios.get(
-          "http://localhost:5000/api/feedbacks/feedback",
+          // "http://localhost:5000/api/feedbacks/feedback",  // Local development URL
+          "https://mess-backend-01.onrender.com/api/feedbacks/feedback",  // Deployed URL
           config
         );
         setFeedback(feedbacks.data.data);
@@ -74,7 +78,8 @@ function MessPage() {
         : {};
 
       const res = await axios.put(
-        `http://localhost:5000/api/menus/update/${menu._id}`,
+        // `http://localhost:5000/api/menus/update/${menu._id}`,  // Local development URL
+        `https://mess-backend-01.onrender.com/api/menus/update/${menu._id}`,  // Deployed URL
         { day, mealType, items },
         config
       );
@@ -196,7 +201,7 @@ function MessPage() {
               
             >
               <p >"{fb.comment}"</p>
-              <div style={{ fontSize: "0.9em", color: "#555" }}>
+              <div  >
                 — {fb.studentId?.name || "Anonymous"} (
                 {fb.studentId?.email || "No email"})
               </div>

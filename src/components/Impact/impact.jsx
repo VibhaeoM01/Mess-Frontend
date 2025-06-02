@@ -18,7 +18,8 @@ function Impact() {
           ? { headers: { Authorization: `Bearer ${token}` } }
           : {};
         const Value = await axios.get(
-          "http://localhost:5000/api/feedbacks/feedback",
+          // "http://localhost:5000/api/feedbacks/feedback",  // Local development URL
+          "https://mess-backend-01.onrender.com/api/feedbacks/feedback",  // Deployed URL
           config
         );
         // console.log("API response:", Value.data);
