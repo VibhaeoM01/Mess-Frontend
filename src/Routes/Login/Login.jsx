@@ -22,7 +22,7 @@
         navigate(`/${res.data.user.role}`); 
       } catch (err) {
          console.log("Login error:", err.response);       
-        setError(err.response?.data?.message || "Login failed");
+        setError(err.response?.data?.message || "Server Error");
       } 
 
     };

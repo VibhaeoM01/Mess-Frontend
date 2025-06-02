@@ -23,7 +23,7 @@ function Singup() {
       navigate(`/`);
     } catch (err) {
       console.error("Full error object:", err);  
-      setError(err.response.data.message || "Login failed");
+      setError(err.response.data.message || "Server Error");
     }
   };
 
