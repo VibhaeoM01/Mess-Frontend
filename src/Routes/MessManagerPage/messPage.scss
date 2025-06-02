@@ -1,6 +1,6 @@
 @import "../../responsive.scss";
 .messPage {
-  padding: 100px;
+  padding: 60px;
   @include sm {
     padding: 30px;
   }
@@ -89,4 +89,33 @@
       }
     }
   }
+ .feedbacks {
+  margin-top: 50px;
+  h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #222;
+  }
+  .feedback-card {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    p {
+      font-style: italic;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    div {
+      font-size: 0.95em;
+      color: #555;
+    }
+  }
+  p {
+    color: #888;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+}
 }

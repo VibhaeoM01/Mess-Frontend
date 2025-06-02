@@ -10,7 +10,8 @@ function MessPage() {
   const [day, setDay] = useState("Monday");
   const [mealType, setMeal] = useState("breakfast");
   const [items, setitems] = useState("");
-  const [success,setsuccess]=useState(false);
+  const [success, setsuccess] = useState(false);
+  const [feedback, setFeedback] = useState([]);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -37,7 +38,14 @@ function MessPage() {
           config
         );
         setMenus(todayRes.data);
+
+        const feedbacks = await axios.get(
+          "http://localhost:5000/api/feedbacks/feedback",
+          config
+        );
+        setFeedback(feedbacks.data.data);
       } catch (err) {
+        setFeedback([]);
         setAllmenus([]);
         setMealCounts(null);
       }
@@ -47,12 +55,12 @@ function MessPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
- 
-   const menu = Allmenus.find(
-  (m) =>
-    m.day.toLowerCase() === day.toLowerCase() &&
-    m.mealType.toLowerCase() === mealType.toLowerCase()
-);  
+
+    const menu = Allmenus.find(
+      (m) =>
+        m.day.toLowerCase() === day.toLowerCase() &&
+        m.mealType.toLowerCase() === mealType.toLowerCase()
+    );
     // const menu = Allmenus.find((m) => m.day === day && m.mealType === mealType);
     console.log(menu);
     if (!menu) {
@@ -98,10 +106,11 @@ function MessPage() {
         )}
       </div>
       <div className="container">
-        {Allmenus.length==0 && <div className="stats" onClick={() => nav("/mess_manager/stats")}>
-          Add Menu
-        </div> }
-        {" "}
+        {Allmenus.length == 0 && (
+          <div className="stats" onClick={() => nav("/mess_manager/stats")}>
+            Add Menu
+          </div>
+        )}{" "}
         <div className="stats" onClick={() => nav("/mess_manager/stats")}>
           Stats
         </div>
@@ -176,6 +185,26 @@ function MessPage() {
             {success && <p>Menu Changed</p>}
           </form>
         </div>
+      </div>
+      <div className="feedbacks">
+        <h2>Student Feedback</h2>
+        {feedback.length > 0 ? (
+          feedback.map((fb) => (
+            <div
+              className="feedback-card"
+              key={fb._id}
+              
+            >
+              <p >"{fb.comment}"</p>
+              <div style={{ fontSize: "0.9em", color: "#555" }}>
+                — {fb.studentId?.name || "Anonymous"} (
+                {fb.studentId?.email || "No email"})
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No feedback yet.</p>
+        )}
       </div>
     </div>
   );
