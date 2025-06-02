@@ -1,12 +1,51 @@
-# React + Vite
+# 🍽️ MessMaster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MessMaster** is a full-stack mess management system built to streamline the operations of student messes. It allows students to view menus, prebook meals, and give real-time feedback, while enabling mess administrators to track bookings, update food schedules, and monitor food wastage.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 👨‍🎓 For Students
+- 📅 View daily & weekly menus
+- 📌 Prebook meals in advance
+- 💬 Submit feedback and complaints
+- 🤖 Integrated chatbot for FAQs and billing queries
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 👨‍🍳 For Mess Admins
+- 📊 Monitor meal bookings and food wastage
+- 🧠 View real-time student feedback and suggestions
+- ✏️ Dynamically update menus
+- 📈 Analyze prebook counts and comments
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- React.js
+- SCSS
+- Vite
+
+**Backend:**
+- Node.js
+- Express.js
+- MongoDB
+
+**Others:**
+- RESTful APIs
+- Botpress Chatbot integration
+
+---
+
+ 
+
+---
+
+## 💻 Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/VibhaeoM01/Mess-Frontend.git
+cd messmaster

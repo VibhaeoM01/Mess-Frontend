@@ -1,7 +1,7 @@
 @import "../../responsive.scss";
 .messPage {
   padding: 100px;
-  @include sm{
+  @include sm {
     padding: 30px;
   }
   .container {
@@ -9,7 +9,7 @@
     justify-content: end;
     margin-right: 20px;
     .stats {
-    //   border: 1px solid black;
+      //   border: 1px solid black;
       width: fit-content;
       background-color: rgb(47, 234, 47);
       color: white;
@@ -25,7 +25,7 @@
     }
     td,
     th {
-      @include sm{  
+      @include sm {
         font-size: small;
         padding: 0%;
       }
@@ -38,12 +38,12 @@
       padding: 20px;
     }
     form {
-      @include sm{
+      @include sm {
         font-size: small;
+        flex-direction: column;
       }
       margin-top: 20px;
       display: flex;
-      flex-direction: column;
       gap: 10px;
       margin-left: 20px;
       select {
@@ -52,7 +52,7 @@
       }
       input {
         width: 250px;
-        @include sm{
+        @include sm {
           height: 50px;
         }
         &:focus {
@@ -61,7 +61,7 @@
         }
       }
       button {
-        @include sm{
+        @include sm {
           width: 100px;
         }
         color: white;
@@ -73,17 +73,17 @@
       }
     }
   }
-  .preBookcount{
+  .preBookcount {
     margin: 60px 20px;
-    ul{
+    ul {
       display: flex;
       flex-direction: column;
       gap: 20px;
       padding: 10px;
-      li{
+      li {
         padding: 5px;
         display: flex;
-        .names{
+        .names {
           font-weight: bold;
         }
       }
