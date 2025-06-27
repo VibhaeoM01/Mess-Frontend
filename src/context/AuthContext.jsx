@@ -7,15 +7,15 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const nav = useNavigate();
 
-  useEffect(() => {
+  useEffect(() => { 
     const verifyUser = async () => {
       const storedToken = localStorage.getItem("token");
       const storedUser = localStorage.getItem("user");
-      
+      console.log('Verifying user:', { storedToken, storedUser });
       if (storedToken && storedUser) {
         try {
           const res = await apiRequest.get("/auth/me", {
@@ -23,12 +23,12 @@ export const AuthProvider = ({ children }) => {
               Authorization: `Bearer ${storedToken}`,
             },
           });
-
+          console.log('/auth/me response:', res.data);
           setUser(JSON.parse(storedUser));
           setToken(storedToken);
           setIsAuthenticated(true);
         } catch (err) {
-          console.log("Token invalid or expired");
+          console.log("Token invalid or expired", err);
           logout();
         }
       } else {
@@ -38,7 +38,6 @@ export const AuthProvider = ({ children }) => {
       }
       setLoading(false);
     };
-
     verifyUser();
   }, []);
 
@@ -75,4 +74,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// Export useAuth hook for context access
 export const useAuth = () => useContext(AuthContext);

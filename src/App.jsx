@@ -10,21 +10,22 @@ import Login from "./Routes/Login/Login";
 import Signup from "./Routes/Signup/signup";
 import "./App.scss";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
- 
+import Ann from "./Routes/Ann/ann.jsx";
+import Stats from "./Routes/Stats/Stats.jsx";
 function App() {
   const { user, loading } = useAuth();
   if (loading) {
     return (
       <div className="App">
-        <div className="loadingscreen"  >
-        <img src="/assets/logo.png" alt="efw" />
-        Loading....
-      </div>
+        <div className="loadingscreen">
+          <img src="/assets/logo.png" alt="efw" />
+          Loading....
+        </div>
       </div>
     );
   }
-  
-    return (
+
+  return (
     <>
       <Navbar />
       <Routes>
@@ -50,6 +51,22 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["mess_manager", "super_admin"]}>
               <MessPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/mess_manager/ann"
+          element={
+            <ProtectedRoute allowedRoles={["mess_manager", "super_admin"]}>
+              <Ann />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/mess_manager/stats"
+          element={
+            <ProtectedRoute allowedRoles={["mess_manager", "super_admin"]}>
+              <Stats />
             </ProtectedRoute>
           }
         />

@@ -18,8 +18,8 @@ function Impact() {
           ? { headers: { Authorization: `Bearer ${token}` } }
           : {};
         const Value = await axios.get(
-          // "http://localhost:5000/api/feedbacks/feedback",  // Local development URL
-          "https://mess-backend-01.onrender.com/api/feedbacks/feedback",  // Deployed URL
+          "http://localhost:5000/api/feedbacks/feedback", // Local development URL
+          // "https://mess-backend-01.onrender.com/api/feedbacks/feedback",  // Deployed URL
           config
         );
         // console.log("API response:", Value.data);
@@ -31,43 +31,45 @@ function Impact() {
     };
     getdata();
   }, []);
-  const firstWithComment = val.find(
-    (item) => item.comment && item.studentId.name == "student"
-  );
+  // const firstWithComment = val.find(
+  //   (item) => item.comment && item.studentId.name == "student"
+  // );
 
   return (
-    <div  className="main1">
+    <div className="main1">
       <div className="container">
-      <h1>Our Impact & What Students Say</h1>
-      <div className="ImpactStudent">
-        <div className="impact">
-          <h2>Real World Impact</h2>
-          <div className="stats-grid">
-            {stats.map((val, key) => (
-              <div className="stats" key={key}>
-                <div className="value">{val.per}</div>
-                <div>{val.d}</div>
-              </div>
-            ))}
+        <h1>Our Impact & What Students Say</h1>
+        <div className="ImpactStudent">
+          <div className="impact">
+            <h2>Real World Impact</h2>
+            <div className="stats-grid">
+              {stats.map((val, key) => (
+                <div className="stats" key={key}>
+                  <div className="value">{val.per}</div>
+                  <div>{val.d}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <hr />
-        <div className="studentsay">
-          <h2> Student Testimonials</h2>
-          <div className="comments">
-            {firstWithComment ? (
+          <hr />
+          <div className="studentsay">
+            <h2> Student Testimonials</h2>
+            <div className="comments">
               <div className="box">
-                <div className="details"><span className="comment">Comment:</span> {firstWithComment.comment}</div>
-                <div className="details"><span className="comment">Name: </span>{firstWithComment.studentId?.name}</div>
-                <div className="details"><span className="comment">Email: </span>{firstWithComment.studentId?.email}</div>
+                <div className="details">
+                  <span className="comment">Comment:</span> Food is great
+                </div>
+                <div className="details">
+                  <span className="comment">Name: </span>{" "}
+                </div>
+                <div className="details">
+                  <span className="comment">Email: </span>{" "}
+                </div>
               </div>
-            ) : (
-              <div>No comments found.</div>
-            )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

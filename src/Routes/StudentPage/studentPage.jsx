@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import apiRequest from "../../lib/apiRequest";
 import "./studentPage.scss";
 import MenuCard from "../../components/MenuCard/MenuCard";
 
@@ -18,10 +18,8 @@ function StudentPage() {
           : {};
 
         const [todayRes, allRes] = await Promise.all([
-          // axios.get("http://localhost:5000/api/menus", config),  // Local development URL
-          axios.get("https://mess-backend-01.onrender.com/api/menus", config),  // Deployed URL
-          // axios.get("http://localhost:5000/api/menus/all", config),  // Local development URL
-          axios.get("https://mess-backend-01.onrender.com/api/menus/all", config),  // Deployed URL
+          apiRequest.get("/menus", config),
+          apiRequest.get("/menus/all", config),
         ]);
         setMenus(todayRes.data);
         setAllMenus(allRes.data);
@@ -54,9 +52,10 @@ function StudentPage() {
   return (
     <div className="studentPage">
       <div className="cards">
-        {menus.map((menu) => (
-          <MenuCard key={menu._id} menu={menu} />
-        ))}
+        {["breakfast", "lunch", "snacks", "dinner"].map(mealType => {
+  const menu = menus.find(m => m.mealType.toLowerCase() === mealType);
+  return menu ? <MenuCard menu={menu} key={menu._id} /> : null;
+})}
       </div>
       <div className="all-menus">
         <h2>Complete Menu</h2>
@@ -76,23 +75,30 @@ function StudentPage() {
               </tr>
             </thead>
             <tbody>
-              {Object.entries(
-                Allmenus.reduce((acc, menu) => {
-                  acc[menu.day] = acc[menu.day] || {};
-                  acc[menu.day][menu.mealType] = menu.items.join(", ");
+              {[
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ].map((day) => {
+                const meals = Allmenus.reduce((acc, menu) => {
+                  if (menu.day === day) {
+                    acc[menu.mealType] = menu.items.join(", ");
+                  }
                   return acc;
-                }, {})
-              ).map(([day, meals]) => (
-                <tr key={day}>
-                  <td>
-                    <strong>{day}</strong>
-                  </td>
-                  <td>{meals.breakfast || "-"}</td>
-                  <td>{meals.lunch || "-"}</td>
-                  <td>{meals.snacks || "-"}</td>
-                  <td>{meals.dinner || "-"}</td>
-                </tr>
-              ))}
+                }, {});
+                return (
+                  <tr key={day}>
+                    <td><strong>{day}</strong></td>
+                    <td>{meals.breakfast || "-"}</td>
+                    <td>{meals.lunch || "-"}</td>
+                    <td>{meals.snacks || "-"}</td>
+                    <td>{meals.dinner || "-"}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         ) : (

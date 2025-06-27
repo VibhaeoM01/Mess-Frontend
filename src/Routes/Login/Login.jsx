@@ -16,8 +16,8 @@
       setError(null); 
       try {
         const res = await apiRequest.post("/auth/login", { email, password });
-        // localStorage.setItem('token', res.data.token);
-        // localStorage.setItem('user', JSON.stringify(res.data.token));
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         login(res.data.user, res.data.token);
         navigate(`/${res.data.user.role}`); 
       } catch (err) {
@@ -54,4 +54,4 @@
     );
   }
 
-  export default Login;
+  export default Login; 

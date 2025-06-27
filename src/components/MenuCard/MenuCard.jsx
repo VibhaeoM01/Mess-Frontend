@@ -1,16 +1,34 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import apiRequest from "../../lib/apiRequest";
 import "./MenuCard.scss";
 
 function MenuCard({ menu }) {
-  const [choice, setChoice] = useState(true);
+  const [choice, setChoice] = useState(null); // null until loaded
   const [error, setError] = useState(null);
   const [comment, setComment] = useState("");
   const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  
+  useEffect(() => {
+    // Fetch the student's previous choice for this menu
+    const fetchChoice = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await apiRequest.get(`/feedbacks/eat/status/${menu._id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setChoice(res.data.willEat === null ? true : res.data.willEat); // default to true if null
+      } catch (err) {
+        setChoice(true); // default to true if error
+      } finally {
+        setLoading(false);
+      }
+    };
+    if (menu && menu._id) fetchChoice();
+  }, [menu]);
 
   if (!menu) return <div>No menu found</div>;
+  if (loading) return <div>Loading...</div>;
 
   const cutoffTime = menu.cutoffTime ? new Date(menu.cutoffTime) : null;
   const now = new Date();
@@ -22,11 +40,13 @@ function MenuCard({ menu }) {
       setTimeout(() => setError(null), 3000);
       return;
     }
+    if (!window.confirm(`Are you sure you want to select '${willEat ? "Yes" : "No"}' for this meal?`)) {
+      return;
+    }
     try {
       const token = localStorage.getItem("token");
-      await axios.post(
-        // `http://localhost:5000/api/feedbacks/eat/${menu._id}`,  // Local development URL
-        `https://mess-backend-01.onrender.com/api/feedbacks/eat/${menu._id}`,  // Deployed URL
+      await apiRequest.post(
+        `/feedbacks/eat/${menu._id}`,
         { willEat },
         {
           headers: {
@@ -37,7 +57,6 @@ function MenuCard({ menu }) {
       setChoice(willEat);
       setError(null);
     } catch (err) {
-      console.log(err);
       setError("Failed to submit choice");
       setTimeout(() => setError(null), 3000);
     }
@@ -51,9 +70,8 @@ function MenuCard({ menu }) {
     }
     try {
       const token = localStorage.getItem("token");
-      await axios.post(
-        // `http://localhost:5000/api/feedbacks/${menu._id}`,  // Local development URL
-        `https://mess-backend-01.onrender.com/api/feedbacks/${menu._id}`,  // Deployed URL
+      await apiRequest.post(
+        `/feedbacks/${menu._id}`,
         { comment },
         {
           headers: {

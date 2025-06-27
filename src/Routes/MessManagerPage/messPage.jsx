@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import apiRequest from "../../lib/apiRequest";
 import "./messPage.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -21,30 +21,26 @@ function MessPage() {
         const config = token
           ? { headers: { Authorization: `Bearer ${token}` } }
           : {};
-        const allMenusRes = await axios.get(
-          // "http://localhost:5000/api/menus/all",  // Local development URL
-          "https://mess-backend-01.onrender.com/api/menus/all",  // Deployed URL
+        const allMenusRes = await apiRequest.get(
+          "/menus/all",
           config
         );
         setAllmenus(Array.isArray(allMenusRes.data) ? allMenusRes.data : []);
 
-        const mealCountsRes = await axios.get(
-          // "http://localhost:5000/api/feedbacks/count",  // Local development URL
-          "https://mess-backend-01.onrender.com/api/feedbacks/count",  // Deployed URL
+        const mealCountsRes = await apiRequest.get(
+          "/feedbacks/count",
           config
         );
         setMealCounts(mealCountsRes.data.data);
 
-        const todayRes = await axios.get(
-          // "http://localhost:5000/api/menus",  // Local development URL
-          "https://mess-backend-01.onrender.com/api/menus",  // Deployed URL
+        const todayRes = await apiRequest.get(
+          "/menus",
           config
         );
         setMenus(todayRes.data);
 
-        const feedbacks = await axios.get(
-          // "http://localhost:5000/api/feedbacks/feedback",  // Local development URL
-          "https://mess-backend-01.onrender.com/api/feedbacks/feedback",  // Deployed URL
+        const feedbacks = await apiRequest.get(
+          "/feedbacks/feedback",
           config
         );
         setFeedback(feedbacks.data.data);
@@ -77,9 +73,8 @@ function MessPage() {
         ? { headers: { Authorization: `Bearer ${token}` } }
         : {};
 
-      const res = await axios.put(
-        // `http://localhost:5000/api/menus/update/${menu._id}`,  // Local development URL
-        `https://mess-backend-01.onrender.com/api/menus/update/${menu._id}`,  // Deployed URL
+      const res = await apiRequest.put(
+        `/menus/update/${menu._id}`,
         { day, mealType, items },
         config
       );
@@ -93,6 +88,11 @@ function MessPage() {
 
   return (
     <div className="messPage">
+     <div className="container">
+       <div className="announcement" onClick={() => nav("/mess_manager/ann")}>
+        Add Announcement
+      </div>
+     </div>
       <div className="preBookcount">
         <h2>Pre-Bookings</h2>
         {mealCounts ? (
@@ -138,23 +138,30 @@ function MessPage() {
               </tr>
             </thead>
             <tbody>
-              {Object.entries(
-                Allmenus.reduce((acc, menu) => {
-                  acc[menu.day] = acc[menu.day] || {};
-                  acc[menu.day][menu.mealType] = menu.items.join(", ");
+              {[
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ].map((day) => {
+                const meals = Allmenus.reduce((acc, menu) => {
+                  if (menu.day === day) {
+                    acc[menu.mealType] = menu.items.join(", ");
+                  }
                   return acc;
-                }, {})
-              ).map(([day, meals]) => (
-                <tr key={day}>
-                  <td>
-                    <strong>{day}</strong>
-                  </td>
-                  <td>{meals.breakfast || "-"}</td>
-                  <td>{meals.lunch || "-"}</td>
-                  <td>{meals.snacks || "-"}</td>
-                  <td>{meals.dinner || "-"}</td>
-                </tr>
-              ))}
+                }, {});
+                return (
+                  <tr key={day}>
+                    <td><strong>{day}</strong></td>
+                    <td>{meals.breakfast || "-"}</td>
+                    <td>{meals.lunch || "-"}</td>
+                    <td>{meals.snacks || "-"}</td>
+                    <td>{meals.dinner || "-"}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         ) : (

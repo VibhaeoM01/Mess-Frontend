@@ -7,6 +7,6 @@ export default defineConfig({
   publicDir: 'public',
   assetsInclude: ['**/*.jpg', '**/*.png'],
   server: {
-    port: 3000
+    port: 5173
   }
 })

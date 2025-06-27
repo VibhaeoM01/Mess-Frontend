@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./contactusform.scss";
-import axios from "axios";
+import apiRequest from "../../lib/apiRequest";
 
 function Contactusform() {
   const [name, setName] = useState("");
@@ -11,8 +11,7 @@ function Contactusform() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // await axios.post("http://localhost:5000/api/contact", { name, email, phone });  // Local development URL
-      await axios.post("https://mess-backend-01.onrender.com/api/contact", { name, email, phone });  // Deployed URL
+      await apiRequest.post("/contact", { name, email, phone });
       setSuccess(true);
       setName("");
       setMail("");
