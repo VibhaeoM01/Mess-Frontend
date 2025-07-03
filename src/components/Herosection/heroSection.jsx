@@ -85,6 +85,9 @@ import "slick-carousel/slick/slick-theme.css";
 import heroImage from "/assets/hero.jpg";
 import image1 from "/assets/hero1.jpg";
 import image2 from "/assets/hero2.jpeg";
+import { useAuth } from "../../context/AuthContext";
+// import { useState } from "react";
+import { useSubscribe } from "../../context/SubscribeContext";
 
 const slides = [
   {
@@ -108,7 +111,16 @@ const slides = [
   },
 ];
 
-function HeroSection() {
+function HeroSection() { 
+  const { Subscribed, setSubscribed } = useSubscribe(false);
+  const { user } = useAuth();
+
+  const handleSubscribe = () => {
+    setSubscribed(true);
+    setTimeout(() => setSubscribed(false), 300000); // 5 minutes = 300,000 ms
+    // Optionally, redirect to payment page:
+    // window.open("https://buy.stripe.com/test_7sYcN53Z86A19fmbBnfUQ01", "_blank");
+  };
   const settings = {
     dots: true,
     infinite: true,
@@ -138,12 +150,25 @@ function HeroSection() {
             </div>
           ))}
         </Slider>
-        <div
-          className="hero-buttons"
-          onClick={() => (window.location.href = "/free-trial")}
-        >
-          Free Trial
-        </div>
+        {!user && (
+          <div className="hero-buttons">
+            <div
+              className="child1"
+              onClick={() => (window.location.href = "/free-trial")}
+            >
+              Free Trial
+            </div>
+            <div className="child2">
+              <a
+                href="https://buy.stripe.com/test_7sYcN53Z86A19fmbBnfUQ01"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="Subscribe" onClick={handleSubscribe}>Subscribe Now</button>
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

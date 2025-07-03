@@ -1,6 +1,6 @@
 @import "../../responsive.scss";
 .navbar {
-  font-size:23px;
+  font-size: 23px;
   border-bottom: 1px solid gray;
   padding: 0 50px;
   display: flex;
@@ -13,12 +13,18 @@
   .gola {
     border-radius: 50%;
     border: 1px solid black;
+    transition: transform 0.3s ease;
+    z-index: 10;
+      &:hover {
+        transform: scale(1.3);
+      }
     .navbar__logo {
       border-radius: 50%;
       padding: 4px;
       display: flex;
       align-items: center;
       gap: 10px;
+      
     }
   }
 
@@ -38,7 +44,7 @@
       }
     }
   }
-  .Subscribe{
+  .Subscribe {
     cursor: pointer;
     padding: 10px;
     height: 45px;
@@ -54,7 +60,7 @@
     display: flex;
     align-items: center;
     .StudentRedirectButton {
-      @include sm{
+      @include sm {
         display: none;
       }
       display: flex;
@@ -95,6 +101,9 @@
       border-radius: 10px;
       background-color: rgb(235, 184, 90);
       cursor: pointer;
+      &:disabled{
+        cursor:not-allowed;
+      }
     }
     .hamburger {
       border: none;

@@ -93,30 +93,105 @@
   }
 }
 
+// .hero-buttons {
+//   // background-color: ;
+//   border: 3px rgb(248, 248, 175) solid;
+//   position: absolute;
+  
+//   bottom: 40px;
+//   transform: translateX(-50%);
+//   display: flex;
+//   gap: 16px;
+//   z-index: 2;
+//   color: black;
+//   height: 50px;
+//   width: 140px;
+//   display: flex;
+//   align-items: center;
+//   font-size: 20px;
+//   font-weight: 800;
+//   justify-content: center;
+//   cursor: pointer;
+//   background: rgba(255, 255, 201, 0.7);
+//   padding: 12px 24px;
+//   border-radius: 32px;
+//   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+//   .child1{
+//     left: 50%;
+//   }
+//   .child2{
+//     left: 70%;    
+//   }
+// }
 .hero-buttons {
+  // border: 3px rgb(248, 248, 175) solid;
   position: absolute;
-  left: 50%;
   bottom: 40px;
+  left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 16px;
   z-index: 2;
   color: black;
   height: 50px;
-  width: 140px;
-  display: flex;
-  align-items: center;
   font-size: 20px;
   font-weight: 800;
+  align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.7);
+  // background: rgba(255, 255, 201, 0.7);
   padding: 12px 24px;
   border-radius: 32px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  .child1, .child2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 120px;
+    padding: 0 12px;
+    border-radius: 20px;
+    background: #fffde4;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+  .child2 {
+    animation-delay: 0.15s;
+  }
+  .child1:hover, .child2:hover, .Subscribe:hover {
+    background: #ffe066;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+    transform: scale(1.08) translateY(-2px);
+  }
+  .Subscribe {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    background: transparent;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
 }
 
-.subscribe-btn,
-.trial-btn {
-  /* Keep your existing button styles or add enhancements here */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+ 

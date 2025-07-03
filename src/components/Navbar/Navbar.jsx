@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
+import { useSubscribe } from "../../context/SubscribeContext";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const { Subscribed } = useSubscribe();
   console.log(user);
   const handleNav = (path) => {
     setMenuOpen(false);
@@ -47,11 +49,7 @@ function Navbar() {
           </ScrollLink>
         </div>
       )}
-     {!user &&
-      <a href="https://buy.stripe.com/test_7sYcN53Z86A19fmbBnfUQ01" target="_blank" rel="noopener noreferrer">
-      <button className="Subscribe">Subscribe Now</button>
-    </a>
-     }
+     
 
       <div className="buttons">
         {user &&
@@ -87,7 +85,7 @@ function Navbar() {
           </>
         ) : (
           <>
-            <button
+            {/* <button
               className="login button"
               onClick={() => handleNav("/login")}
             >
@@ -97,6 +95,14 @@ function Navbar() {
               className="signup button"
               onClick={() => handleNav("/signup")}
             >
+              Signup
+            </button> */}
+            <button className="login button"
+              onClick={() => handleNav("/login")} disabled={!Subscribed} title={!Subscribed ? "Subscribe to enable login" : ""}>
+              Login
+            </button>
+            <button className="signup button"
+              onClick={() => handleNav("/signup")} disabled={!Subscribed} title={!Subscribed ? "Subscribe to enable signup" : ""}>
               Signup
             </button>
           </>
