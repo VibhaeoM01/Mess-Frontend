@@ -35,30 +35,25 @@ function FAQs() {
 
   return (
     <section id="Faqs">
-      <div className="fAQs">
-      <div className="container">
-        <div>
-          <h2>Frequently Asked Questions</h2>
-        </div>
-        {faqData.map((faq, idx) => (
-          <div key={idx}>
-            <button onClick={() => toggle(idx)} className="faq">
-              {faq.question}
-              <span className="logo" style={{ marginLeft: 8 }}>
-                {openIndices.includes(idx) ? "▲" : "▼"}
-              </span>
-            </button>
-            {openIndices.includes(idx) && (
-              <div className="ans">{faq.answer}</div>
-            )}
-            
+  <div className="fAQs">
+    <div className="container">
+      <h2>Frequently Asked Questions</h2>
+      {faqData.map((faq, idx) => (
+        <div key={idx} className="faq-card">
+          <button onClick={() => toggle(idx)} className="faq">
+            <span>{faq.question}</span>
+            <span className="logo">{openIndices.includes(idx) ? "▲" : "▼"}</span>
+          </button>
+          {openIndices.includes(idx) && (
+            <div className="ans">{faq.answer}</div>
+          )}
           <hr />
-          </div>
-        ))}
-        
-      </div>
+        </div>
+      ))}
     </div>
-    </section>
+  </div>
+</section>
+
   );
 }
 

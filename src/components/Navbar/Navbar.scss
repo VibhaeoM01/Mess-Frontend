@@ -59,19 +59,22 @@
   .buttons {
     display: flex;
     align-items: center;
+    
     .StudentRedirectButton {
       @include sm {
         display: none;
       }
       display: flex;
+      color: white;
+      font-weight: bold;
       align-items: center;
       justify-content: center;
       width: 130px;
       height: 50px;
-      background-color: greenyellow;
+      background-color: rgb(129, 42, 42);
       padding: 10px 10px;
       border-radius: 20px;
-      border: 2px solid rgb(139, 231, 1);
+      border: 2px solid rgb(136, 19, 19);;
       transition: transform 0.3s ease;
       &:hover {
         transform: scale(1.08);

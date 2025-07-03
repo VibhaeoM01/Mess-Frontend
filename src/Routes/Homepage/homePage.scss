@@ -1,3 +1,5 @@
+
+@import "../../responsive.scss";
 html,
 body {
   // background-color: rgb(236, 236, 236);
@@ -27,6 +29,50 @@ body {
     min-height: 100vh;
     height: auto;
     overflow: visible;
-    
+    .image{
+      @include sm{
+        display: none;
+      }
+      @include md{
+        display: none;
+      }
+      position: absolute;
+      z-index: 10;
+      left: 75%;
+      top: 188%;
+      opacity: 0.5;
+      // border-radius: 30%;
+    }
+    .image1{
+      @include sm{
+        display: none;
+      }
+      @include md{
+        display: none;
+      }
+      position: absolute;
+      z-index: 10;
+      // left: 75%;
+      top: 188%;
+      opacity: 0.5;
+      // border-radius: 30%;
+    }
+    .image2{
+      @include sm{
+        display: none;
+      }
+      @include md{
+        display: none;
+      }
+      position: absolute;
+      z-index: 10;
+      // left: 75%;
+      top: 79%;
+      left: 70%;
+      // right: 0%;
+      transform: rotate(280deg);
+      opacity: 0.5;
+      // border-radius: 30%;
+    }
   }
 }

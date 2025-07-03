@@ -29,6 +29,15 @@ function HomePage() {
 
   return (
     <div className="homePage">
+  <div className="image">
+  <img src="/assets/home1left.png" alt="" />
+  </div>
+  <div className="image1">
+  <img src="/assets/home1right.png" alt="" />
+  </div>
+  <div className="image2">
+    <img src="/assets/home2left.png" alt="" />
+  </div>
       <Chatbot />
       <HeroSection />
       <ShowCard />
