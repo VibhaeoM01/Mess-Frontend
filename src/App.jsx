@@ -13,6 +13,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Ann from "./Routes/Ann/ann.jsx";
 import Stats from "./Routes/Stats/Stats.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import FreeTrial from "./Routes/FreeTrial/FreeTrial.jsx";
 function App() {
   const { user, loading } = useAuth();
   if (loading) {
@@ -39,6 +40,10 @@ function App() {
           path="/signup"
           element={!user ? <Signup /> : <Navigate to={`/${user.role}`} />}
         />
+        <Route
+        path="/free-trial"
+        element={<FreeTrial/>}
+          />
         <Route
           path="/student"
           element={

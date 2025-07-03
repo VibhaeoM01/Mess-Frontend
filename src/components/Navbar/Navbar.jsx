@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useSubscribe } from "../../context/SubscribeContext";
 
 function Navbar() {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { user, logout } = useAuth();
@@ -26,7 +28,7 @@ function Navbar() {
         </div>
       </div>
 
-      {!user && (
+      {isHome && (
         <div className="scrolllinks">
           <ScrollLink
             className="scroll"
