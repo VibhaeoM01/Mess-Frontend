@@ -10,10 +10,31 @@
   align-items: center;
   height: 100vh;
   background-color: #f0f0f0;
-
+ .cont{
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 100px;
+    background-color: orange;
+    // background-color: rgb(199, 199, 255);
+    img {
+      width: 90px;
+      // border-radius: 50%;
+      padding: 10px;
+   
+  }
+}
+ }
   .Box {
+    border-radius: 30px;
+    height: fit-content;
     background-color: white; 
-    height: 500px;
+    // height: 500px;
     width: 400px;
     display: flex;
     flex-direction: column; 
@@ -29,6 +50,9 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+    p{
+      font-weight: bold;
+    }
      .Ainput {
       display: flex;
       flex-direction: column; 
@@ -36,16 +60,41 @@
       padding: 10px;
       box-sizing: border-box;
        select {
-    border: none;
-    width: 250px;  
-    padding: 5px;
-    outline: none;
-    background: #fff;
-    font-size: 16px;
-  }
+          border: 1px solid #bbb;
+          width: 250px;
+          padding: 8px 12px;
+          outline: none;
+          background: #f9f9f9;
+          font-size: 16px;
+          border-radius: 8px;
+          transition: border 0.2s, box-shadow 0.2s;
+        }
+        select:focus {
+          border: 1.5px solid orange;
+          box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.15);
+          background: #fff;
+        }
+        select:hover {
+          border: 1.5px solid #888;
+        }
+        select option {
+          padding: 10px;
+          font-size: 16px;
+          background: #fff;
+          color: #333;
+        }
       .input {
+        display: flex;
         border: 1px solid black;
-        padding: 5px;
+        // padding: 5px;
+        padding: 5px 10px;
+        gap: 5px;
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // background-color: rgb(199, 199, 255);
+        }
       }
       p {
         margin: 5px 0px;
@@ -65,9 +114,13 @@
     }
 
     .buttons {
+      padding-top: 10px;
       display: flex;
       justify-content: center;
       button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         border: none;
         border-radius: 10px;
         padding: 15px 20px;

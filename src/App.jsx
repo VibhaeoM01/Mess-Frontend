@@ -12,6 +12,7 @@ import "./App.scss";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Ann from "./Routes/Ann/ann.jsx";
 import Stats from "./Routes/Stats/Stats.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 function App() {
   const { user, loading } = useAuth();
   if (loading) {
@@ -71,6 +72,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer/>
     </>
   );
 }

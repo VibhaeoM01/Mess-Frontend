@@ -1,14 +1,14 @@
 @import "../../responsive.scss";
 .main1 {
   display: flex;
-  padding: 40px;
+  padding: 60px;
   background-color: white;
   @include sm {
     height: fit-content;
   }
   align-items: center;
   justify-content: center;
-  height: 370px;
+  height: 420px;
   margin-top: 150px;
   .container {
     display: flex;
@@ -16,59 +16,68 @@
     justify-content: center;
     align-items: center;
     width: 80%;
-    h1,
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
     h2 {
       text-align: center;
+      font-size: 2rem;
+      margin-bottom: 16px;
     }
     .ImpactStudent {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      margin-top: 50px;
       display: flex;
+      gap: 80px;
       @include sm {
-        gap: 40px;
+        gap: 50px;
         flex-direction: column;
       }
-
       .impact {
-        width: 50%;
+        width: 55%;
         @include sm{
           width: 100%;
         }
         height: fit-content;
         .stats-grid {
-          margin-left: 30px;
-          margin-top: 30px;
+          margin-left: 40px;
+          margin-top: 40px;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 10px;
+          gap: 24px;
           @include sm{
             width: 100%;
           }
           .stats {
-            background-color: red;
-            width: 80%;
-            height: 100%;
-            border: 1px solid black;
-            padding: 10px;
-            background: #f9f9f9;
-            transition: transform 0.1s ease, border 0.3s ease;
+            min-width: 180px;
+            min-height: 120px;
+            height: 140px;
+            font-size: 1.08rem;
+            border: 2.5px solid black;
+            padding: 24px 24px;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
             .value {
-              text-align: center;
-              font-size: 30px;
-              font-weight: bold;
-              color: rgb(249, 82, 82);
+              color: rgb(105, 175, 96);
+              font-size: 2.6rem;
+              margin-bottom: 8px;
             }
             &:hover {
-              border: 1px solid red;
-              transform: scale(1.1);
+              border: 2px solid rgb(221, 134, 134);
+              transform: scale(1.08);
               background-color: rgb(253, 210, 210);
-            }
+            } 
           }
         }
       }
       .studentsay {
-        width: 60%;
+        width: 65%;
         @include sm{
           width: 100%;
         }
@@ -78,14 +87,21 @@
           justify-content: center;
           align-items: center;
           .box {
-            padding: 10px;
-            margin-top: 30px;
-            align-items: center;
+            padding: 32px 40px;
+            margin-top: 50px;
+            min-width: 350px;
+            min-height: 180px;
+            font-size: 1.3rem;
+            border-radius: 20px;
+            border: 2px solid #bbb;
+            background: #f7f7f7;
             .details {
-              padding: 4px;
+              padding: 10px;
+              font-size: 1.15rem;
             }
             .comment {
               font-weight: bold;
+              font-size: 1.2rem;
             }
           }
         }

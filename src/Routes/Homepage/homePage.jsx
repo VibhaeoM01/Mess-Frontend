@@ -35,7 +35,7 @@ function HomePage() {
       <Impact />
       <Contactusform />
       <FAQs />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

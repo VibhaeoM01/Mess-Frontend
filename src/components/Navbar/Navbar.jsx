@@ -47,6 +47,11 @@ function Navbar() {
           </ScrollLink>
         </div>
       )}
+     {!user &&
+      <a href="https://buy.stripe.com/test_7sYcN53Z86A19fmbBnfUQ01" target="_blank" rel="noopener noreferrer">
+      <button className="Subscribe">Subscribe Now</button>
+    </a>
+     }
 
       <div className="buttons">
         {user &&

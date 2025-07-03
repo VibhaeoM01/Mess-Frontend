@@ -3,7 +3,13 @@
   padding: 60px;
   @include sm {
     padding: 30px;
-  }
+  } 
+    .cards{
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px;
+    } 
   .container{
      display: flex;
     justify-content: end;

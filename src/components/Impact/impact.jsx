@@ -46,7 +46,7 @@ function Impact() {
               {stats.map((val, key) => (
                 <div className="stats" key={key}>
                   <div className="value">{val.per}</div>
-                  <div>{val.d}</div>
+                  <div className="desc">{val.d}</div>
                 </div>
               ))}
             </div>

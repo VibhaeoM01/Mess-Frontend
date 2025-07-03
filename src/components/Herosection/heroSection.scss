@@ -20,7 +20,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -63,7 +63,7 @@
       z-index: 3;
       width: 40px;
       height: 40px;
-      
+
       &:before {
         font-size: 40px;
       }
@@ -80,15 +80,43 @@
     .slick-dots {
       bottom: 20px;
       z-index: 3;
-      
+
       li button:before {
         color: white;
         font-size: 12px;
       }
-      
+
       li.slick-active button:before {
         color: white;
       }
     }
   }
+}
+
+.hero-buttons {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 2;
+  color: black;
+  height: 50px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 12px 24px;
+  border-radius: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.subscribe-btn,
+.trial-btn {
+  /* Keep your existing button styles or add enhancements here */
 }

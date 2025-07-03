@@ -30,17 +30,23 @@ function Singup() {
   return (
     <div className="signup">
       <div className="Box">
-        <div className="Header">New to Mess? Signup</div>
+        <div className="cont">
+        <div className="logo"><img src="/assets/add-user.png" alt="logo" height={90} width={90}
+  style={{ padding: '20px' }} /></div>
+        </div>
+        <div className="Header">Create Account</div>
         <div className="innerBox">
           <form onSubmit={handleSubmit}>
             <div className="Ainput"> 
             <p>Name</p>
             <div className="input">
+              <div className="icon">
+              <img src="/assets/user.png" alt="user" height={20} width={20} /></div> 
               <input
                 type="name"
                 name="name"
                 value={name}
-                placeholder="Enter your name"
+                placeholder="Full Name"
                 required
                 onChange={(e) => setName(e.target.value)}
               />
@@ -49,11 +55,13 @@ function Singup() {
           <div className="Ainput"> 
             <p>Email</p>
             <div className="input">
+              <div className="icon">
+              <img src="/assets/email.png" alt="email" height={20} width={20} /></div> 
               <input
                 type="email"
                 name="email"
                 value={email}
-                placeholder="Enter your email"
+                placeholder="Email Address"
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -61,12 +69,15 @@ function Singup() {
           </div>
           <div className="Ainput">
             <p>Password</p>
+             
             <div className="input">
+            <div className="icon">
+            <img src="/assets/lock.png" alt="user" height={20} width={20} /></div>
               <input
                 type="password"
                 name="password"
                 value={password}
-                placeholder="Enter your password"
+                placeholder="Create a password"
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -74,17 +85,24 @@ function Singup() {
           </div>
           <div className="Ainput"> 
             <p>Role</p>
-            <div className="input">
+            {/* <div className="input"> */}
               <select value={role} onChange={e=>setRole(e.target.value)}>
                 <option name="student" id="">Student</option>
                 <option name="super_admin" id="">Admin</option>
                 <option name="mess_manager" id="">Mess Manager</option>
               </select>
-            </div>
+            {/* </div> */}
           </div>
+
+
+
           <div className="buttons">
-            <button type="submit">Signup</button>
+            <button type="submit"><div className="add" >
+            <img src="/assets/add-user.png" alt="signup" height={20} width={20} /></div>Create Account</button>
           </div>
+
+
+
         </form>
         </div>
         {error && <p className="error">{error}</p>}

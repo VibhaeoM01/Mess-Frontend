@@ -96,8 +96,8 @@ function MenuCard({ menu }) {
 
 
   const photos = {
-    breakfast: { img: "/assets/1.jpg" },
-    lunch: { img: "/assets/2.jpg" },
+    breakfast: { img: "/assets/2.jpg" },
+    lunch: { img: "/assets/hero1.jpg" },
     snacks: { img: "/assets/3.jpg" },
     dinner: { img: "/assets/1.jpg" }
   };

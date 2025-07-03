@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import apiRequest from "../../lib/apiRequest";
 import "./messPage.scss";
 import { useNavigate } from "react-router-dom";
+import useMenuData from "../../lib/useMenuData";
+import MenuCard from "../../components/MenuCard/MenuCard";
 
 function MessPage() {
-  const [menu, setMenus] = useState([]);
-  const [Allmenus, setAllmenus] = useState([]);
+  const { menus, allMenus, loading, error } = useMenuData();
   const [mealCounts, setMealCounts] = useState(null);
   const [day, setDay] = useState("Monday");
   const [mealType, setMeal] = useState("breakfast");
@@ -21,32 +22,12 @@ function MessPage() {
         const config = token
           ? { headers: { Authorization: `Bearer ${token}` } }
           : {};
-        const allMenusRes = await apiRequest.get(
-          "/menus/all",
-          config
-        );
-        setAllmenus(Array.isArray(allMenusRes.data) ? allMenusRes.data : []);
-
-        const mealCountsRes = await apiRequest.get(
-          "/feedbacks/count",
-          config
-        );
+        const mealCountsRes = await apiRequest.get("/feedbacks/count", config);
         setMealCounts(mealCountsRes.data.data);
-
-        const todayRes = await apiRequest.get(
-          "/menus",
-          config
-        );
-        setMenus(todayRes.data);
-
-        const feedbacks = await apiRequest.get(
-          "/feedbacks/feedback",
-          config
-        );
+        const feedbacks = await apiRequest.get("/feedbacks/feedback", config);
         setFeedback(feedbacks.data.data);
       } catch (err) {
         setFeedback([]);
-        setAllmenus([]);
         setMealCounts(null);
       }
     };
@@ -56,12 +37,12 @@ function MessPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const menu = Allmenus.find(
+    const menu = allMenus.find(
       (m) =>
         m.day.toLowerCase() === day.toLowerCase() &&
         m.mealType.toLowerCase() === mealType.toLowerCase()
     );
-    // const menu = Allmenus.find((m) => m.day === day && m.mealType === mealType);
+    // const menu = allMenus.find((m) => m.day === day && m.mealType === mealType);
     console.log(menu);
     if (!menu) {
       alert("Menu not found for the selected day and meal type.");
@@ -86,13 +67,24 @@ function MessPage() {
     }
   };
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+
   return (
     <div className="messPage">
-     <div className="container">
-       <div className="announcement" onClick={() => nav("/mess_manager/ann")}>
-        Add Announcement
+      <div className="cont">
+      <div className="cards">
+        {["breakfast", "lunch", "snacks", "dinner"].map((mealType) => {
+          const menu = menus.find((m) => m.mealType.toLowerCase() === mealType);
+          return menu ? <MenuCard menu={menu} key={menu._id} /> : null;
+        })}
       </div>
-     </div>
+      </div>
+      <div className="container">
+        <div className="announcement" onClick={() => nav("/mess_manager/ann")}>
+          Add Announcement
+        </div>
+      </div>
       <div className="preBookcount">
         <h2>Pre-Bookings</h2>
         {mealCounts ? (
@@ -111,7 +103,7 @@ function MessPage() {
         )}
       </div>
       <div className="container">
-        {Allmenus.length == 0 && (
+        {allMenus.length == 0 && (
           <div className="stats" onClick={() => nav("/mess_manager/stats")}>
             Add Menu
           </div>
@@ -122,7 +114,7 @@ function MessPage() {
       </div>
       <div className="all-menus">
         <h2>Complete Menu</h2>
-        {Allmenus.length > 0 ? (
+        {allMenus.length > 0 ? (
           <table
             border="1"
             cellPadding="8"
@@ -144,9 +136,9 @@ function MessPage() {
                 "Wednesday",
                 "Thursday",
                 "Friday",
-                "Saturday"
+                "Saturday",
               ].map((day) => {
-                const meals = Allmenus.reduce((acc, menu) => {
+                const meals = allMenus.reduce((acc, menu) => {
                   if (menu.day === day) {
                     acc[menu.mealType] = menu.items.join(", ");
                   }
@@ -154,7 +146,9 @@ function MessPage() {
                 }, {});
                 return (
                   <tr key={day}>
-                    <td><strong>{day}</strong></td>
+                    <td>
+                      <strong>{day}</strong>
+                    </td>
                     <td>{meals.breakfast || "-"}</td>
                     <td>{meals.lunch || "-"}</td>
                     <td>{meals.snacks || "-"}</td>
@@ -202,13 +196,9 @@ function MessPage() {
         <h2>Student Feedback</h2>
         {feedback.length > 0 ? (
           feedback.map((fb) => (
-            <div
-              className="feedback-card"
-              key={fb._id}
-              
-            >
-              <p >"{fb.comment}"</p>
-              <div  >
+            <div className="feedback-card" key={fb._id}>
+              <p>"{fb.comment}"</p>
+              <div>
                 — {fb.studentId?.name || "Anonymous"} (
                 {fb.studentId?.email || "No email"})
               </div>

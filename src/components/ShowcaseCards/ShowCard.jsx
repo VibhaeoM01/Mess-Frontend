@@ -2,16 +2,18 @@ import "./showCard.scss";
 
 function ShowCard() {
   const data = [
-    { c:"1",d: "View Menu", desc: "Easily browse daily and weekly meals" },
+    { clr:"rgb(255, 159, 159)",c:"/assets/menufood.png",d: "View Menu", desc: "See today's and weekly meals" },
     {
-      c:"2",
+      clr:" rgb(169, 211, 235)",
+      c:"/assets/book2.png",
       d: "Pre-book Meals",
-      desc: "Reserve your spot for upcoming meals to ensure availability and reduce waste",
+      desc: "Reserve meals in advance, avoid waste",
     },
     {
-      c:"3",
+      clr:"green",
+      c:"/assets/feedback.png",
       d: "Give Feedback",
-      desc: "Share your thoughts and suggestions on meals and services instantly"
+      desc: "Share quick feedback on food & service"
     },
   ];
   return (
@@ -20,7 +22,9 @@ function ShowCard() {
       <div className="showCard">
         {data.map((item, key) => (
           <div className="grids" key={key}>
-            <div className="numbers">{item.c}</div>
+            <div className="numbers" style={{ background: item.clr }}>
+              <img src={item.c} alt="" />
+            </div>
             <div className="card-title">{item.d}</div>
             <div className="card-desc">{item.desc}</div>
           </div>
