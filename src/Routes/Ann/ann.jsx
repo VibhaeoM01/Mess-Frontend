@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import apiRequest from "../../lib/apiRequest";
 import "./ann.scss";
 
 function Ann() {
@@ -14,8 +14,8 @@ function Ann() {
     setError("");
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post(
-        "http://localhost:5000/api/mail/send",
+      const res = await apiRequest.post(
+        "/mail/send",
         { subject, message },
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./impact.scss";
-import axios from "axios";
+import apiRequest from "../../lib/apiRequest";
 function Impact() {
   const stats = [
     { per: "95%", d: "Student Satisfaction" },
@@ -17,9 +17,8 @@ function Impact() {
         const config = token
           ? { headers: { Authorization: `Bearer ${token}` } }
           : {};
-        const Value = await axios.get(
-          "http://localhost:5000/api/feedbacks/feedback", // Local development URL
-          // "https://mess-backend-01.onrender.com/api/feedbacks/feedback",  // Deployed URL
+        const Value = await apiRequest.get(
+          "/feedbacks/feedback", // Using apiRequest with relative path
           config
         );
         // console.log("API response:", Value.data);

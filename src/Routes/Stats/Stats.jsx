@@ -95,6 +95,7 @@ import {
   Legend,
   Tooltip,
 } from "chart.js";
+import apiRequest from "../../lib/apiRequest";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip);
 
@@ -136,8 +137,8 @@ function SentimentTrendsChart() {
     const fetchTrends = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get(
-          "http://localhost:5000/api/feedbacks/sentiment-trends",
+        const res = await apiRequest.get(
+          " feedbacks/sentiment-trends",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
