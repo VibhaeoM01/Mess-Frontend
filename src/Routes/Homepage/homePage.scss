@@ -2,6 +2,8 @@
 @import "../../responsive.scss";
 html,
 body {
+   background-color: rgb(241, 249, 241);
+  // background-color: rgb(255, 255, 224);
   // background-color: rgb(236, 236, 236);
   height: auto;
   min-height: 100vh;
@@ -39,7 +41,7 @@ body {
       position: absolute;
       z-index: 10;
       left: 75%;
-      top: 188%;
+      top: 202%;
       opacity: 0.5;
       // border-radius: 30%;
     }
@@ -53,7 +55,7 @@ body {
       position: absolute;
       z-index: 10;
       // left: 75%;
-      top: 188%;
+      top:202%;
       opacity: 0.5;
       // border-radius: 30%;
     }

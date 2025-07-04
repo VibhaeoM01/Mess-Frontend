@@ -1,29 +1,206 @@
 .footer {
   margin-top: 120px;
-  display: flex;
-  height: 200px;
-  background-color: rgb(248, 155, 155);
-  justify-content: center;
-  align-items: start;
-  padding-top: 50px;
-  gap: 50px;
-  p,
-  .link {
-    padding: 5px 0px;
-  }
-  .link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+
+  .whatsapp-float {
+    position: fixed;
+    top: 110px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    color: black;
-     
-      cursor: pointer;
+    // box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-icon {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8);
+    }
+    100% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  .footer-section {
+    .brand h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #ffd700, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand p {
+      font-weight: bolder;
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: #ffd700;
+      position: relative;
+
+      &:after {
+        content: " ";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: #ffd700;
+      }
+    }
+
+    .links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-link {
+      color: #e0e0e0;
       text-decoration: none;
-      color: inherit;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 5px 0;
 
       &:hover {
-        color: #007bff;
+        color: #ffd700;
+        transform: translateX(5px);
       }
-    
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #e0e0e0;
+
+      .icon {
+        font-size: 1.2rem;
+        width: 25px;
+      }
+    }
+
+    .social-links {
+      display: flex; 
+    }
+
+    .social-link {
+      display: flex;
+      color: #e0e0e0;
+      transition: all 0.3s ease; 
+
+      &:hover {
+        color: #ffd700;
+        transform: rotate(15deg);
+      }
+
+      span {
+        font-size: 1.1rem;
+        width: 20px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    .footer-bottom-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 25px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      p {
+        margin: 0;
+        color: #b0b0b0;
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: 25px;
+
+        a {
+          color: #b0b0b0;
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #ffd700;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 30px;
+      padding: 40px 20px 30px;
+    }
+
+    .footer-bottom-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+
+      .footer-bottom-links {
+        gap: 15px;
+      }
+    }
   }
 }
