@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Toggle this variable to switch environments
-const USE_DEPLOYED = false;
+const USE_DEPLOYED = true;
 
 const apiRequest = axios.create({
     baseURL: USE_DEPLOYED

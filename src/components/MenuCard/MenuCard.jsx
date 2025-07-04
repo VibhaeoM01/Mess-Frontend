@@ -10,14 +10,29 @@ function MenuCard({ menu }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch the student's previous choice for this menu
+    // OLD VERSION - COMMENTED OUT
+    // const fetchChoice = async () => {
+    //   try {
+    //     const token = localStorage.getItem("token");
+    //     const res = await apiRequest.get(`/feedbacks/eat/status/${menu._id}`, {
+    //       headers: { Authorization: `Bearer ${token}` },
+    //     });
+    //     setChoice(res.data.willEat === null ? true : res.data.willEat); // default to true if null
+    //   } catch (err) {
+    //     setChoice(true); // default to true if error
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+    
+    // NEW VERSION WITH DAILY RESET - Fetch the student's previous choice for this menu
     const fetchChoice = async () => {
       try {
         const token = localStorage.getItem("token");
         const res = await apiRequest.get(`/feedbacks/eat/status/${menu._id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setChoice(res.data.willEat === null ? true : res.data.willEat); // default to true if null
+        setChoice(res.data.willEat); // *** NEW FEATURE: Backend now handles daily reset and defaults to true ***
       } catch (err) {
         setChoice(true); // default to true if error
       } finally {
