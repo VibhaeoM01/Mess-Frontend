@@ -166,7 +166,7 @@ function HeroSection() {
                 rel="noopener noreferrer"
               >
                 <button className="Subscribe" onClick={handleSubscribe}>
-                 Donate Us
+                 Donate
                 </button>
               </a>
             </div>
