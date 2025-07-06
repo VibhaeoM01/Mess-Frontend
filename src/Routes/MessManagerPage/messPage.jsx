@@ -76,7 +76,36 @@ function MessPage() {
       <div className="cards">
         {["breakfast", "lunch", "snacks", "dinner"].map((mealType) => {
           const menu = menus.find((m) => m.mealType.toLowerCase() === mealType);
-          return menu ? <MenuCard menu={menu} key={menu._id} /> : null;
+          return menu ? (
+            <div className="menuCard" key={menu._id}>
+              <div className="image-container">
+                <img 
+                  className="image" 
+                  src={
+                    mealType === "breakfast" ? "/assets/2.jpg" :
+                    mealType === "lunch" ? "/assets/hero1.jpg" :
+                    mealType === "snacks" ? "/assets/3.jpg" :
+                    "/assets/1.jpg"
+                  }
+                  alt={`${menu.mealType} menu`}
+                />
+              </div>
+              <h2 className="mealType">{menu.mealType}</h2>
+              <div className="items">
+                {Array.isArray(menu.items) && menu.items.length > 0 ? (
+                  <ol>
+                    {menu.items.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p>No items listed</p>
+                )}
+              </div>
+              <p className="time">Time: {menu.time}</p>
+              {/* REMOVED: Yes/No buttons and comment section for mess manager */}
+            </div>
+          ) : null;
         })}
       </div>
       </div>
@@ -194,7 +223,8 @@ function MessPage() {
       </div>
       <div className="feedbacks">
         <h2>Student Feedback</h2>
-        {feedback.length > 0 ? (
+       <div className="inner">
+         {feedback.length > 0 ? (
           feedback.map((fb) => (
             <div className="feedback-card" key={fb._id}>
               <p>"{fb.comment}"</p>
@@ -208,6 +238,7 @@ function MessPage() {
           <p>No feedback yet.</p>
         )}
       </div>
+       </div>
     </div>
   );
 }

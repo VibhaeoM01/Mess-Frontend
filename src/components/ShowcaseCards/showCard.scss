@@ -1,24 +1,45 @@
 @import "../../responsive.scss";
-.main {
 
-  // background-color: white;
-  // border-radius:50px;
-  // background-color: red;
-  border: 1px soid gray;
-  margin-top: 40px;
+// 🚀 SHOWCASE CARDS - SUPER ATTRACTIVE FEATURE BUTTONS
+// =====================================================
+// Making features irresistible with modern food-tech design
+// Fresh Sage Green: #87A96B, Citrus Burst: #FF8C42, Berry Purple: #9F7AEA
+// Golden Honey: #F6D55C, Pearl White: #FAFAFA, Charcoal Slate: #2D3748
+
+.main {
+  // OLD: border: 1px soid gray;
+  border: none; // NEW: Remove border for cleaner look
+  margin-top: 60px; // NEW: More space from navbar
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
-  height: 430px;
-  height:fit-content;
-  padding: 50px 0px;
+  gap: 50px; // NEW: More spacing
+  height: fit-content;
+  padding: 60px 20px; // NEW: Better padding
+  // OLD: background: linear-gradient(135deg, #E8F5E8 0%, #FAFAFA 100%);
+  background-color: #F8FDFF; // NEW: Very light cool blue-white background
+  position: relative;
+  
+  // REMOVED: Decorative background pattern - too much!
+  
   .heading {
-    font-size: 50px;
-    transition: all 0.4s ease-out;
+    font-size: 3.5rem;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    // OLD: color: #2D3748;
+    color: #4A90E2; // NEW: Light cool blue - fresh and modern
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    
+    // REMOVED: Gradient text effect - too much!
+    
     &:hover{
-      text-decoration: underline;
+      transform: translateY(-2px); // NEW: Subtle lift only
+      // OLD: filter: drop-shadow(0 4px 8px rgba(135, 169, 107, 0.3));
+      filter: drop-shadow(0 3px 6px rgba(100, 149, 237, 0.2)); // NEW: Light cool blue shadow
     }
   }
   .showCard {
@@ -27,23 +48,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 60px; // NEW: More spacing between cards
+    position: relative; // NEW: For positioning
+    z-index: 1; // NEW: Above background
     @include sm{
         display: flex;
         flex-direction: column;
+        gap: 40px; // NEW: Better mobile spacing
       }
 
     .grids {
-      background-color: white;
-      border: 1px solid rgb(224, 224, 224);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      width: 300px;
-      height: 180px;
+      // OLD: background-color: white;
+      // OLD: background: linear-gradient(135deg, #FAFAFA 0%, #E8F5E8 100%);
+      background-color: #F8FDFF; // NEW: Very light cool blue-white - clean and fresh
+      // OLD: border: 1px solid rgb(224, 224, 224);
+      // OLD: border: 3px solid transparent;
+      border: 2px solid #E3F2FD; // NEW: Light cool blue border - subtle and clean
+      // OLD: box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      // OLD: box-shadow: 0 12px 40px rgba(135, 169, 107, 0.2);
+      box-shadow: 0 6px 20px rgba(100, 149, 237, 0.15); // NEW: Light cool blue shadow
+      border-radius: 16px; // NEW: Moderately rounded
+      width: 320px;
+      height: 200px;
       position: relative;
       display: flex; 
       justify-content: center;
       align-items: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease; // NEW: Smoother transitions
+      
+      // REMOVED: All gradient border effects and animated backgrounds
+      
+      // NEW: Simple, clean hover effects
+      &:hover {
+        transform: translateY(-4px); // NEW: Subtle lift only
+        // OLD: box-shadow: 0 20px 60px rgba(135, 169, 107, 0.3);
+        box-shadow: 0 12px 32px rgba(100, 149, 237, 0.2); // NEW: Light cool blue glow
+        background-color: #F0F8FF; // NEW: Even lighter cool blue on hover
+        
+        .numbers {
+          transform: scale(1.05); // NEW: Subtle scale only
+          // OLD: background: linear-gradient(135deg, #FF8C42, #9F7AEA);
+          background-color: #87CEEB; // NEW: Light sky blue - cool and clean
+        }
+      }
       
 
       .card-title,
@@ -54,36 +103,52 @@
         text-align: center;
         width: 100%;
         height: 100%;
-        padding: 0 10px;
+        padding: 0 20px; // NEW: More padding
+        position: relative; // NEW: For z-index
+        z-index: 1; // NEW: Above background pattern
       }
+      
       .numbers {
         position: absolute;
-        top: 25px;
-        right: 130px;
-        font-size: 2rem;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
         font-weight: bold;
-        color: red;
-        background: rgb(169, 211, 235);
-        opacity: 0.5;
+        // OLD: color: red;
+        color: #FFFFFF; // NEW: Pure white for clean contrast
+        // OLD: background: rgb(169, 211, 235);
+        // OLD: background: linear-gradient(135deg, #87A96B, #51CF66);
+        background-color: #66B3FF; // NEW: Light cool blue - fresh and clean
+        // OLD: opacity: 0.5;
+        opacity: 0.9;
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 55px;
+        height: 55px;
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 2;
+        transition: all 0.3s ease;
+        // OLD: box-shadow: 0 4px 12px rgba(135, 169, 107, 0.3);
+        box-shadow: 0 3px 10px rgba(100, 149, 237, 0.25); // NEW: Light cool blue shadow
+        
         img{
-          height: 35px;
+          height: 32px;
+          filter: brightness(0) invert(1); // Keep icons white
         }
       }
+      
       .card-title {
         margin-top: 30px;
-        font-weight: 700;
-        font-size: x-large;
-        transition: transform 0.3s, opacity 0.3s;
-        // position: absolute;
+        font-weight: 800; // NEW: Bolder weight
+        font-size: 1.4rem; // NEW: Larger size
+        // OLD: transition: transform 0.3s, opacity 0.3s;
+        transition: all 0.4s ease; // NEW: Smoother transitions
+        // OLD: position: absolute;
+        color: #2D3748; // NEW: Charcoal Slate
         top: 0;
         left: 0;
+        line-height: 1.3; // NEW: Better line height
       }
 
       .card-desc {
@@ -92,20 +157,27 @@
         left: 0;
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.3s, transform 0.3s;
+        // OLD: transition: opacity 0.3s, transform 0.3s;
+        transition: all 0.4s ease; // NEW: Smoother transitions
         pointer-events: none;
+        color: #2D3748; // NEW: Charcoal Slate
+        font-weight: 600; // NEW: Bolder weight
+        font-size: 1.1rem; // NEW: Larger size
+        line-height: 1.4; // NEW: Better line height
       }
 
       &:hover .card-title {
-        transform: translateY(-20px);
+        transform: translateY(-15px);
         opacity: 0;
       }
 
       &:hover .card-desc {
         opacity: 1;
-        transform: translateY(1);
+        transform: translateY(1); // NEW: Centered position
         pointer-events: auto;
       }
     }
   }
+  
+  // REMOVED: Rotation animation - unnecessary complexity
 }

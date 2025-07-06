@@ -67,7 +67,7 @@ const FreeTrial = () => {
                 onClick={() => handleVote(idx, 'no')}
               >No</button>
             </div>
-            <textarea placeholder="Enter text here..." />
+            <textarea placeholder="Share your thoughts about this meal... We'd love to hear from you!" />
             <button className="submit">Submit</button>
           </div>
         ))}

@@ -34,17 +34,13 @@ function HomePage() {
   </div>
   <div className="image1">
   <img src="/assets/home1right.png" alt="" />
-  </div>
-  {/* <div className="image2">
-    <img src="/assets/home2left.png" alt="" />
-  </div> */}
+  </div> 
       <Chatbot />
       <HeroSection />
       <ShowCard />
       <Impact />
       <Contactusform />
-      <FAQs />
-      {/* <Footer /> */}
+      <FAQs /> 
     </div>
   );
 }

@@ -37,7 +37,7 @@ function Impact() {
   return (
     <div className="main1">
       <div className="container">
-        <h1>Our Impact & What Students Say</h1>
+        <h1>Our Impact & What Our Client Say</h1>
         <div className="ImpactStudent">
           <div className="impact">
             <h2>Real World Impact</h2>
@@ -52,18 +52,18 @@ function Impact() {
           </div>
           <hr />
           <div className="studentsay">
-            <h2> Student Testimonials</h2>
+            <h2> Client Testimonials</h2>
             <div className="comments">
               <div className="box">
                 <div className="details">
-                  <span className="comment">Comment:</span> Food is great
+                  <span className="comment">Comment: </span>   Thank you, MessMaster, for developing this software—it makes it easy for us to share feedback, helping the admin stay informed about the issues students face. Truly grateful! 😊
                 </div>
-                <div className="details">
+                {/* <div className="details">
                   <span className="comment">Name: </span>{" "}
                 </div>
                 <div className="details">
                   <span className="comment">Email: </span>{" "}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

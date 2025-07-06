@@ -111,10 +111,10 @@ const slides = [
   },
 ];
 
-function HeroSection() { 
+function HeroSection() {
   const { Subscribed, setSubscribed } = useSubscribe(false);
   const { user } = useAuth();
-
+  
   const handleSubscribe = () => {
     setSubscribed(true);
     setTimeout(() => setSubscribed(false), 300000); // 5 minutes = 300,000 ms
@@ -158,14 +158,28 @@ function HeroSection() {
             >
               Free Trial
             </div>
+
             <div className="child2">
               <a
                 href="https://buy.stripe.com/test_7sYcN53Z86A19fmbBnfUQ01"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="Subscribe" onClick={handleSubscribe}>Subscribe Now</button>
+                <button className="Subscribe" onClick={handleSubscribe}>
+                 Donate Us
+                </button>
               </a>
+            </div>
+          </div>
+        )}
+        {(!user || user.role === "mess_manager") && (
+          <div className="hero-buttons">
+            <div
+              className="child3"
+              onClick={() => (window.location.href = "/get-mess-id")}
+              title="Create a Mess ID (Mess Managers only)"
+            >
+              Get Mess ID
             </div>
           </div>
         )}

@@ -8,12 +8,17 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./Routes/Login/Login";
 import Signup from "./Routes/Signup/signup";
+import StudentLogin from "./Routes/StudentLogin/StudentLogin";
+import GetMessId from "./Routes/GetMessId/GetMessId";
 import "./App.scss";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Ann from "./Routes/Ann/ann.jsx";
 import Stats from "./Routes/Stats/Stats.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import FreeTrial from "./Routes/FreeTrial/FreeTrial.jsx";
+import { ToastProvider } from "./context/ToastContext";
+import { MessProvider } from "./context/MessContext";
+import StripeSuccess from "./components/StripeSuccess/StripeSuccess.jsx";
 function App() {
   const { user, loading } = useAuth();
   if (loading) {
@@ -28,22 +33,35 @@ function App() {
   }
 
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to={`/${user.role}`} />}
-        />
-        <Route
-          path="/signup"
-          element={!user ? <Signup /> : <Navigate to={`/${user.role}`} />}
-        />
-        <Route
-        path="/free-trial"
-        element={<FreeTrial/>}
+    <MessProvider>
+      <ToastProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/login"
+            element={!user ? <Login /> : <Navigate to={`/${user.role}`} />}
           />
+          <Route
+            path="/student-login"
+            element={!user ? <StudentLogin /> : <Navigate to="/student" />}
+          />
+          <Route
+            path="/get-mess-id"
+            element={<GetMessId />}
+          />
+          <Route
+            path="/signup"
+            element={!user ? <Signup /> : <Navigate to={`/${user.role}`} />}
+          />
+          <Route
+          path="/free-trial"
+          element={<FreeTrial/>}
+            />
+        <Route
+          path="/stripe-success"
+          element={<StripeSuccess/>}
+        />
         <Route
           path="/student"
           element={
@@ -78,7 +96,8 @@ function App() {
         />
       </Routes>
       <Footer/>
-    </>
+      </ToastProvider>
+    </MessProvider>
   );
 }
 

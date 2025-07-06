@@ -160,7 +160,7 @@ function MenuCard({ menu }) {
           name="comment"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Enter text here..."
+          placeholder="Share your honest review - we're here to listen!"
         ></textarea>
         <button onClick={handleCommentSubmit}>Submit</button>
         {success && <div className="messagesuccess">{success}</div>}

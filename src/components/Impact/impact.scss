@@ -1,77 +1,148 @@
 @import "../../responsive.scss";
+
+// 📊 IMPACT SECTION - SHOWCASE STATISTICS & TESTIMONIALS
+// =======================================================
+// Making numbers impressive and testimonials engaging
+// Fresh Sage Green: #87A96B, Citrus Burst: #FF8C42, Berry Purple: #9F7AEA
+// Golden Honey: #F6D55C, Pearl White: #FAFAFA, Charcoal Slate: #2D3748
+
 .main1 {
   display: flex;
-  padding: 60px;
+  padding: 80px 20px; // NEW: Better padding with mobile consideration
   // background-color: white;
+  background: linear-gradient(135deg, #FAFAFA 0%, #E8F5E8 100%); // NEW: Subtle gradient
   @include sm {
     height: fit-content;
+    padding: 60px 20px; // NEW: Mobile padding
   }
   align-items: center;
   justify-content: center;
-  height: 420px;
-  margin-top: 150px;
+  height: auto; // NEW: Auto height for content
+  margin-top: 120px; // NEW: Better spacing
+  position: relative; // NEW: For decorative elements
+  
+  // NEW: Decorative background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(135, 169, 107, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(255, 140, 66, 0.1) 0%, transparent 50%);
+    z-index: 0;
+  }
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 90%; // NEW: Better width
+    position: relative; // NEW: Above background
+    z-index: 1;
+    
     h1 {
       text-align: center;
-      font-size: 2.8rem;
-      font-weight: bold;
-      margin-bottom: 20px;
+      font-size: 3.2rem; // NEW: Larger heading
+      font-weight: 800; // NEW: Bolder weight
+      margin-bottom: 30px; // NEW: Better spacing
+      color: #2D3748; // NEW: Charcoal Slate
+      
+      // NEW: Gradient text effect
+      background: linear-gradient(135deg, #87A96B, #FF8C42, #9F7AEA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
+    
     h2 {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 16px;
+      font-size: 1.8rem; // NEW: Better size
+      margin-bottom: 24px; // NEW: Better spacing
+      color: #718096; // NEW: Warm Gray
+      font-weight: 600; // NEW: Medium weight
+      line-height: 1.4; // NEW: Better line height
     }
     .ImpactStudent {
-      margin-top: 50px;
+      margin-top: 60px; // NEW: Better spacing
       display: flex;
-      gap: 80px;
+      gap: 100px; // NEW: More space between sections
       @include sm {
-        gap: 50px;
+        gap: 60px; // NEW: Better mobile spacing
         flex-direction: column;
       }
       .impact {
-        width: 55%;
+        width: 50%; // NEW: Better proportion
         @include sm{
           width: 100%;
         }
         height: fit-content;
         .stats-grid {
-          margin-left: 40px;
+          margin-left: 0; // NEW: Remove left margin
           margin-top: 40px;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 24px;
+          gap: 32px; // NEW: More spacing
           @include sm{
             width: 100%;
+            gap: 24px; // NEW: Mobile spacing
           }
           .stats {
-            min-width: 180px;
-            min-height: 120px;
-            height: 140px;
-            font-size: 1.08rem;
-            border: 2.5px solid black;
-            padding: 24px 24px;
-            border-radius: 18px;
+            min-width: 200px; // NEW: Wider stats cards
+            min-height: 140px; // NEW: Taller stats cards
+            height: 160px; // NEW: Better height
+            font-size: 1.1rem; // NEW: Larger font
+            // OLD: border: 2.5px solid black;
+            border: 3px solid transparent; // NEW: Transparent border for gradient
+            padding: 28px 24px; // NEW: Better padding
+            border-radius: 20px; // NEW: More rounded
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            .value {
-              color: rgb(105, 175, 96);
-              font-size: 2.6rem;
-              margin-bottom: 8px;
+            // NEW: Gradient background
+            background: linear-gradient(135deg, #FAFAFA 0%, #E8F5E8 100%);
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 600; // NEW: Bolder text
+            
+            // NEW: Gradient border effect
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(135deg, #87A96B, #FF8C42, #9F7AEA);
+              border-radius: 20px;
+              padding: 3px;
+              z-index: -1;
             }
+            
+            .value {
+              // OLD: color: rgb(105, 175, 96);
+              color: #FF8C42; // NEW: Citrus Burst for numbers
+              font-size: 3rem; // NEW: Larger numbers
+              margin-bottom: 12px; // NEW: Better spacing
+              font-weight: 800; // NEW: Bolder numbers
+              text-shadow: 0 2px 4px rgba(255, 140, 66, 0.3); // NEW: Subtle glow
+            }
+            
             &:hover {
-              border: 2px solid rgb(221, 134, 134);
-              transform: scale(1.08);
-              background-color: rgb(253, 210, 210);
+              // OLD: border: 2px solid rgb(221, 134, 134);
+              transform: translateY(-5px) scale(1.05); // NEW: Lift and scale
+              // OLD: background-color: rgb(253, 210, 210);
+              background: linear-gradient(135deg, #E8F5E8 0%, #FAFAFA 100%); // NEW: Reversed gradient
+              box-shadow: 0 12px 32px rgba(135, 169, 107, 0.3); // NEW: Sage green shadow
+              
+              .value {
+                color: #9F7AEA; // NEW: Berry Purple on hover
+                transform: scale(1.1); // NEW: Scale numbers on hover
+              }
             } 
           }
         }
@@ -93,15 +164,28 @@
             min-height: 180px;
             font-size: 1.3rem;
             border-radius: 20px;
-            border: 2px solid #bbb;
-            background: #f7f7f7;
+            // OLD: border: 2px solid #bbb;
+            border: 2px solid rgba(135, 169, 107, 0.2); // NEW: Sage green border
+            // OLD: background: #f7f7f7;
+            background: linear-gradient(135deg, #FAFAFA 0%, #F8FDF8 100%); // NEW: Clean gradient
+            transition: all 0.3s ease; // NEW: Smooth transitions
+            position: relative; // NEW: For shadow effects
+            
+            &:hover {
+              transform: translateY(-3px); // NEW: Subtle lift
+              box-shadow: 0 8px 24px rgba(135, 169, 107, 0.15); // NEW: Sage shadow
+              border-color: rgba(135, 169, 107, 0.4); // NEW: Stronger border on hover
+            }
+            
             .details {
               padding: 10px;
               font-size: 1.15rem;
+              color: #2D3748; // NEW: Charcoal text
             }
             .comment {
               font-weight: bold;
               font-size: 1.2rem;
+              color: #87A96B; // NEW: Sage green for emphasis
             }
           }
         }

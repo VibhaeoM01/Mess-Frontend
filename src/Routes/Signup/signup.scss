@@ -137,4 +137,79 @@
       font-weight: 500;
     }
   }
+
+  .loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Role section styling
+  .role-section {
+    .role-info {
+      margin-bottom: 8px;
+      
+      small {
+        color: #666;
+        font-size: 0.85em;
+        line-height: 1.4;
+      }
+    }
+    
+    .role-select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: white;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: #ff6b35;
+      }
+      
+      option {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+    
+    .role-note {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background-color: #f8f9fa;
+      border-radius: 6px;
+      border-left: 3px solid #ff6b35;
+      
+      small {
+        color: #555;
+        font-size: 0.8em;
+        font-weight: 500;
+      }
+    }
+  }
 }

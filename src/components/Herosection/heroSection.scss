@@ -1,7 +1,17 @@
+// MODERNIZED FOOD-TECH COLOR PALETTE - HERO SECTION
+// Primary: Fresh Sage Green (#87A96B) - Natural, healthy eating
+// Secondary: Warm Sunset Orange (#F4A460) - Appetite stimulation
+// Background: Pearl White (#FAFAFA) - Clean, minimal
+// Text: Charcoal Slate (#2D3748) - Professional readability
+// Accent: Citrus Burst (#FF8C42) - Energetic CTAs
+// Highlight: Berry Purple (#9F7AEA) - Premium feel
+// Success: Golden Honey (#F6D55C) - Positive actions
+
 .heroSection {
   height: 400px;
   width: 100%;
-  color: white;
+  // OLD: color: white;
+  color: #FAFAFA; // NEW: Pearl White - clean, readable text
   position: relative;
 
   .slide {
@@ -26,7 +36,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      // OLD: background-color: rgba(0, 0, 0, 0.4);
+      background: linear-gradient(135deg, rgba(45, 55, 72, 0.6), rgba(135, 169, 107, 0.3)); // NEW: Sophisticated gradient overlay
       z-index: 1;
     }
 
@@ -44,14 +55,16 @@
       h2 {
         font-size: 3rem;
         margin-bottom: 1rem;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        // OLD: text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        text-shadow: 2px 2px 12px rgba(45, 55, 72, 0.8); // NEW: Enhanced shadow with brand color
       }
 
       p {
         font-size: 1.2rem;
         max-width: 700px;
         margin: 0 auto;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        // OLD: text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        text-shadow: 1px 1px 6px rgba(45, 55, 72, 0.6); // NEW: Softer shadow with brand color
       }
     }
   }
@@ -82,12 +95,14 @@
       z-index: 3;
 
       li button:before {
-        color: white;
+        // OLD: color: white;
+        color: #F6D55C; // NEW: Golden Honey - warm, visible dots
         font-size: 12px;
       }
 
       li.slick-active button:before {
-        color: white;
+        // OLD: color: white;
+        color: #FF8C42; // NEW: Citrus Burst - active state highlight
       }
     }
   }
@@ -132,7 +147,8 @@
   display: flex;
   gap: 16px;
   z-index: 2;
-  color: black;
+  // OLD: color: black;
+  color: #2D3748; // NEW: Charcoal Slate - professional button text
   height: 50px;
   font-size: 20px;
   font-weight: 800;
@@ -142,9 +158,10 @@
   // background: rgba(255, 255, 201, 0.7);
   padding: 12px 24px;
   border-radius: 32px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  // OLD: box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(135, 169, 107, 0.2); // NEW: Soft sage green shadow
 
-  .child1, .child2 {
+  .child1, .child2, .child3 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,23 +169,41 @@
     min-width: 120px;
     padding: 0 12px;
     border-radius: 20px;
-    background: #fffde4;
     font-size: 18px;
     font-weight: 600;
     border: none;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(135, 169, 107, 0.3); // NEW: Sage green shadow for depth
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   }
+
+  .child1 {
+    // OLD: background: #fffde4;
+    background: linear-gradient(135deg, #F6D55C, #F4A460); // NEW: Golden Honey to Sunset Orange gradient
+  }
+
+  .child3 {
+    // NEW: Get Mess ID button styling
+    background: linear-gradient(135deg, #4FD1C7, #38B2AC); // NEW: Teal gradient for distinction
+    color: white;
+
+    &:hover {
+      background: linear-gradient(135deg, #38B2AC, #319795);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(77, 209, 199, 0.4);
+    }
+  }
+
   .child2 {
-    animation-delay: 0.15s;
+    // OLD: background: #fffde4;
+    background: linear-gradient(135deg, #F6D55C, #F4A460); // NEW: Golden Honey to Sunset Orange gradient
   }
+
   .child1:hover, .child2:hover, .Subscribe:hover {
-    background: #ffe066;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+    // OLD: background: #ffe066;
+    background: linear-gradient(135deg, #FF8C42, #9F7AEA); // NEW: Citrus Burst to Berry Purple - energetic hover
+    // OLD: box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+    box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4); // NEW: Citrus Burst glow effect
     transform: scale(1.08) translateY(-2px);
   }
   .Subscribe {
@@ -178,7 +213,8 @@
     border-radius: 20px;
     border: none;
     background: transparent;
-    color: #222;
+    // OLD: color: #222;
+    color: #2D3748; // NEW: Charcoal Slate - professional text
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
   }
@@ -194,4 +230,3 @@
     transform: translateY(0);
   }
 }
- 

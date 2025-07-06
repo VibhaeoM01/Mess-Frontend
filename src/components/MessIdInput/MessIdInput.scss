@@ -1,0 +1,186 @@
+// MessIdInput Component - Food-Tech Styling
+.mess-id-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #FAFAFA 0%, #E8F5E8 100%);
+
+  .mess-id-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(135, 169, 107, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .mess-id-header {
+      text-align: center;
+      margin-bottom: 30px;
+
+      h3 {
+        color: #2D3748;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, #87A96B, #FF8C42);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        color: #718096;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+
+    .mess-id-form {
+      .input-group {
+        margin-bottom: 24px;
+
+        label {
+          display: block;
+          font-weight: 600;
+          color: #2D3748;
+          margin-bottom: 8px;
+          font-size: 0.95rem;
+        }
+
+        .mess-id-input-field {
+          width: 100%;
+          padding: 14px 16px;
+          border: 2px solid #E2E8F0;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-family: 'Courier New', monospace;
+          font-weight: 600;
+          letter-spacing: 1px;
+          transition: all 0.2s ease;
+          background: #F8F9FA;
+
+          &:focus {
+            outline: none;
+            border-color: #87A96B;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(135, 169, 107, 0.1);
+          }
+
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+
+          &::placeholder {
+            color: #A0AEC0;
+            font-family: inherit;
+          }
+        }
+
+        .input-hint {
+          display: block;
+          margin-top: 6px;
+          color: #718096;
+          font-size: 0.85rem;
+          font-style: italic;
+        }
+      }
+
+      .mess-id-submit {
+        width: 100%;
+        padding: 14px 24px;
+        background: linear-gradient(135deg, #87A96B 0%, #6B8E4A 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        &:hover:not(:disabled) {
+          background: linear-gradient(135deg, #6B8E4A 0%, #5A7A3A 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(135, 169, 107, 0.3);
+        }
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+          transform: none;
+        }
+
+        .loading-spinner {
+          width: 16px;
+          height: 16px;
+          border: 2px solid transparent;
+          border-top: 2px solid white;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+      }
+    }
+
+    .mess-id-help {
+      margin-top: 24px;
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #E2E8F0;
+
+      p {
+        color: #718096;
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      .help-link {
+        background: none;
+        border: none;
+        color: #87A96B;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: underline;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #6B8E4A;
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .mess-id-input {
+    padding: 10px;
+    min-height: 50vh;
+
+    .mess-id-card {
+      padding: 30px 20px;
+
+      .mess-id-header h3 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

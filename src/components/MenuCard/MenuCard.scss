@@ -1,15 +1,40 @@
+// 🍽️ MENU CARD COMPONENT - FOOD-TECH DESIGN
+// ==========================================
+// Making meal selection exciting and appetizing!
+// Fresh Sage Green: #87A96B, Citrus Burst: #FF8C42, Berry Purple: #9F7AEA
+// Pearl White: #FAFAFA, Charcoal Slate: #2D3748, Golden Honey: #F6D55C
+
 .menuCard {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  // OLD: background: #ffffff;
+  background: linear-gradient(135deg, #FAFAFA 0%, #E8F5E8 100%); // NEW: Pearl White to Crisp Lettuce gradient
+  border-radius: 16px; // NEW: More modern rounding
+  padding: 24px; // NEW: More generous padding
+  // OLD: box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(135, 169, 107, 0.15); // NEW: Sage Green shadow for food appeal
   margin: 15px;
   max-width: 400px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  border: 2px solid transparent; // NEW: For smooth hover transition
+  position: relative; // NEW: For decorative elements
+  overflow: hidden; // NEW: Clean edges
+
+  // NEW: Decorative accent stripe
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #87A96B, #FF8C42, #9F7AEA); // NEW: Brand gradient stripe
+  }
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    // OLD: transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02); // NEW: Enhanced hover with scale
+    // OLD: box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 16px 48px rgba(135, 169, 107, 0.25); // NEW: Dramatic sage green glow
+    border-color: #87A96B; // NEW: Brand color border on hover
   }
 
   .image-container {
@@ -23,101 +48,233 @@
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 8px;
-    background: #f5f5f5;
+    border-radius: 12px; // NEW: More rounded for modern look
+    // OLD: background: #f5f5f5;
+    background: linear-gradient(135deg, #E8F5E8, #FAFAFA); // NEW: Fresh gradient placeholder
+    border: 2px solid #87A96B; // NEW: Brand color border for food images
+    transition: all 0.3s ease; // NEW: Smooth transitions
+    
+    &:hover {
+      transform: scale(1.05); // NEW: Image zoom on hover
+      border-color: #FF8C42; // NEW: Citrus border on hover
+    }
   }
 
   .mealType {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 1.6rem; // NEW: Slightly larger for impact
+    font-weight: 700; // NEW: Bolder weight
+    margin-bottom: 12px; // NEW: Better spacing
     text-transform: capitalize;
-    color: #333333;
+    // OLD: color: #333333;
+    color: #2D3748; // NEW: Charcoal Slate for professional look
+    text-align: center; // NEW: Center alignment for emphasis
+    position: relative; // NEW: For decorative underline
+    
+    // NEW: Decorative underline
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #87A96B, #FF8C42); // NEW: Brand gradient underline
+      border-radius: 2px;
+    }
   }
 
   .items {
-    margin: 10px 0;
+    margin: 16px 0; // NEW: Better spacing
     ol {
       padding-left: 20px;
       li {
-        margin-bottom: 5px;
-        color: #555555;
+        margin-bottom: 8px; // NEW: More spacing between items
+        // OLD: color: #555555;
+        color: #2D3748; // NEW: Charcoal Slate for better readability
+        font-weight: 500; // NEW: Slightly bolder for food items
+        font-size: 1.05rem; // NEW: Slightly larger for food descriptions
+        line-height: 1.4; // NEW: Better line spacing
       }
     }
   }
 
   .time {
-    color: #888888;
-    font-size: 0.9rem;
-    margin: 10px 0;
+    // OLD: color: #888888;
+    color: #718096; // NEW: Warm Gray for time info
+    font-size: 1rem; // NEW: Slightly larger
+    margin: 12px 0; // NEW: Better spacing
+    font-weight: 600; // NEW: Bolder weight
+    text-align: center; // NEW: Center alignment
+    background: #E8F5E8; // NEW: Light background for time
+    padding: 8px 16px; // NEW: Padding for time badge
+    border-radius: 20px; // NEW: Pill shape for time
+    display: inline-block; // NEW: Inline block for pill shape
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); // NEW: Center the time badge
   }
 
   .buttons {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 16px; // NEW: More spacing between buttons
+    margin-top: 20px; // NEW: Better spacing from content
 
     .but {
       flex: 1;
-      padding: 10px 0;
+      padding: 14px 0; // NEW: More padding for better touch targets
       border: none;
-      border-radius: 6px;
-      font-weight: bold;
+      border-radius: 12px; // NEW: More rounded corners
+      font-weight: 700; // NEW: Bolder text
+      font-size: 1.1rem; // NEW: Larger text
       cursor: pointer;
-      transition: background 0s ease, color 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative; // NEW: For hover effects
+      overflow: hidden; // NEW: Clean hover effects
 
       &.yes {
-        background-color: #e0e0e0;
-        color: #222222;
+        // OLD: background-color: #e0e0e0;
+        background-color: #E8F5E8; // NEW: Light green background
+        // OLD: color: #222222;
+        color: #2D3748; // NEW: Charcoal text
+        border: 2px solid #87A96B; // NEW: Sage green border
 
         &.selected {
-          background-color: #8bc34a;
-          color: #ffffff;
+          // OLD: background-color: #8bc34a;
+          background: linear-gradient(135deg, #51CF66, #87A96B); // NEW: Herb to Sage gradient
+          // OLD: color: #ffffff;
+          color: #FAFAFA; // NEW: Pearl White text
+          box-shadow: 0 4px 16px rgba(81, 207, 102, 0.4); // NEW: Green glow
+          transform: translateY(-2px); // NEW: Lift effect when selected
         }
       }
 
       &.no {
-        background-color: #e0e0e0;
-        color: #222222;
+        // OLD: background-color: #e0e0e0;
+        background-color: #FAFAFA; // NEW: Pearl White background
+        // OLD: color: #222222;
+        color: #2D3748; // NEW: Charcoal text
+        border: 2px solid #FF6B6B; // NEW: Tomato Red border
 
         &.selected {
-          background-color: #f44336;
-          color: #ffffff;
+          // OLD: background-color: #f44336;
+          background: linear-gradient(135deg, #FF6B6B, #FF8C42); // NEW: Tomato to Citrus gradient
+          // OLD: color: #ffffff;
+          color: #FAFAFA; // NEW: Pearl White text
+          box-shadow: 0 4px 16px rgba(255, 107, 107, 0.4); // NEW: Red glow
+          transform: translateY(-2px); // NEW: Lift effect when selected
         }
       }
 
       &:hover {
-        opacity: 0.9;
+        // OLD: opacity: 0.9;
+        transform: translateY(-1px); // NEW: Subtle lift on hover
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); // NEW: Hover shadow
       }
     }
   }
 
   .message {
-    margin-top: 10px;
-    font-size: 0.85rem;
+    margin-top: 16px; // NEW: Better spacing
+    font-size: 1rem; // NEW: Larger text
+    font-weight: 600; // NEW: Bolder weight
+    text-align: center; // NEW: Center alignment
+    padding: 8px 16px; // NEW: Padding for message
+    border-radius: 8px; // NEW: Rounded message box
 
     &.error {
-      color: #f44336;
+      // OLD: color: #f44336;
+      color: #FAFAFA; // NEW: White text on red background
+      background-color: #FF6B6B; // NEW: Tomato Red background
     }
   }
+  
   .comment {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-    text-area {
-      textarea {
-        height: 80px;
-        width: 100%;
-        resize: vertical;
-        padding: 8px;
-        font-size: 1rem;
-        border-radius: 4px;
-        border: 1px solid #ccc;
+    gap: 16px; // NEW: More spacing
+    margin-top: 24px;
+    
+    p {
+      margin: 0; // NEW: Remove default margin
+      font-weight: 600; // NEW: Bolder label
+      color: #2D3748; // NEW: Charcoal Slate
+      font-size: 1.1rem; // NEW: Slightly larger
+    }
+    
+    textarea {
+      height: 100px; // NEW: Better height
+      width: 100%;
+      resize: vertical;
+      padding: 16px; // NEW: More generous padding
+      font-size: 1rem;
+      border-radius: 12px; // NEW: More rounded corners
+      // OLD: border: 2px solid #87A96B;
+      border: 2px solid #E3F2FD; // NEW: Light cool blue border
+      // OLD: background-color: #E8F5E8;
+      background-color: #F8FDFF; // NEW: Very light cool blue background
+      color: #2D3748;
+      font-family: inherit; // NEW: Use same font as page
+      line-height: 1.5; // NEW: Better line spacing
+      transition: all 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        // OLD: border-color: #FF8C42;
+        border-color: #87A96B; // NEW: Fresh Sage Green on focus
+        // OLD: box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.2);
+        box-shadow: 0 0 0 3px rgba(135, 169, 107, 0.2); // NEW: Sage green glow
+        background-color: #FFFFFF; // NEW: Pure white on focus
+      }
+      
+      &::placeholder {
+        color: #718096; // NEW: Warm Gray placeholder
+        font-style: italic; // NEW: Italic placeholder
       }
     }
+    
+    // NEW: Submit button styling
+    button {
+      align-self: flex-start; // NEW: Don't stretch full width
+      padding: 12px 24px; // NEW: Better padding
+      background-color: #87A96B; // NEW: Fresh Sage Green
+      color: #FAFAFA; // NEW: Pearl White text
+      border: none;
+      border-radius: 10px; // NEW: Rounded corners
+      font-size: 1rem;
+      font-weight: 600; // NEW: Semi-bold
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 8px rgba(135, 169, 107, 0.3); // NEW: Sage green shadow
+      min-width: 100px; // NEW: Minimum width
+      
+      &:hover {
+        background-color: #51CF66; // NEW: Herb Green on hover
+        transform: translateY(-1px); // NEW: Subtle lift
+        box-shadow: 0 4px 12px rgba(81, 207, 102, 0.4); // NEW: Enhanced shadow
+      }
+      
+      &:active {
+        transform: translateY(0); // NEW: Button press effect
+      }
+      
+      &:disabled {
+        background-color: #718096; // NEW: Warm Gray when disabled
+        cursor: not-allowed;
+        opacity: 0.7;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+    
     .messagesuccess{
-      color: green;
+      color: #FAFAFA;
+      background-color: #51CF66;
+      padding: 12px 20px; // NEW: Better padding
+      border-radius: 10px; // NEW: More rounded
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(81, 207, 102, 0.3); // NEW: Success shadow
     }
   }
 }

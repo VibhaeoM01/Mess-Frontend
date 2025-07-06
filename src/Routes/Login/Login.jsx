@@ -21,8 +21,8 @@ function Login() {
         login(res.data.user, res.data.token);
         navigate(`/${res.data.user.role}`); 
       } catch (err) {
-         console.log("Login error:", err.response);       
-        setError(err.response?.data?.message || "Server Error");
+         console.log("Login error:", err);       
+        setError(err.response?.data?.message);
       } 
 
     };

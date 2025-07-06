@@ -1,0 +1,274 @@
+// Stripe Success Page - Modern Food-Tech Design
+.stripe-success {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FAFAFA 0%, #E8F5E8 100%);
+  padding: 20px;
+  
+  &.loading {
+    .success-container {
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    .loading-spinner-large {
+      width: 60px;
+      height: 60px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #4CAF50;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  }
+  
+  .success-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(45, 55, 72, 0.1);
+    border: 1px solid rgba(135, 169, 107, 0.1);
+    
+    .success-icon {
+      margin-bottom: 30px;
+      
+      .checkmark {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #87A96B, #72956B);
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: bold;
+        animation: successBounce 0.6s ease-out;
+      }
+    }
+    
+    h1 {
+      color: #2D3748;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #87A96B, #FF8C42);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      color: #4A5568;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      
+      &.redirect-info {
+        font-size: 0.9rem;
+        color: #718096;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+    }
+    
+    ul {
+      text-align: left;
+      max-width: 300px;
+      margin: 25px auto;
+      
+      li {
+        color: #2D3748;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+    
+    .continue-btn {
+      background: linear-gradient(135deg, #87A96B 0%, #72956B 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(135, 169, 107, 0.3);
+      
+      &:hover {
+        background: linear-gradient(135deg, #72956B 0%, #87A96B 100%);
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(135, 169, 107, 0.4);
+      }
+      
+      &:active {
+        transform: translateY(0) scale(0.98);
+      }
+    }
+  }
+  
+  .payment-details {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid #e9ecef;
+    
+    h3 {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      font-size: 1.1rem;
+    }
+    
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e9ecef;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .label {
+        font-weight: 500;
+        color: #666;
+      }
+      
+      .value {
+        font-weight: 600;
+        color: #2c3e50;
+        
+        &.success {
+          color: #4CAF50;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  
+  .features-activated {
+    margin: 2rem 0;
+    
+    h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        color: #555;
+        
+        &::before {
+          content: '✅';
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    
+    .continue-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &.primary {
+        background: #4CAF50;
+        color: white;
+        
+        &:hover {
+          background: #45a049;
+          transform: translateY(-2px);
+        }
+      }
+      
+      &.secondary {
+        background: #f8f9fa;
+        color: #2c3e50;
+        border: 2px solid #e9ecef;
+        
+        &:hover {
+          background: #e9ecef;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+  
+  @keyframes successBounce {
+    0% {
+      transform: scale(0) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.2) rotate(180deg);
+    }
+    100% {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+
+  // Mobile responsiveness
+  @media (max-width: 768px) {
+    .stripe-success {
+      padding: 15px;
+      
+      .success-container {
+        padding: 30px 20px;
+        
+        h1 {
+          font-size: 2rem;
+        }
+        
+        .success-icon .checkmark {
+          width: 60px;
+          height: 60px;
+          font-size: 30px;
+        }
+        
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+      
+      .continue-btn {
+        width: 100%;
+      }
+    }
+  }
+}

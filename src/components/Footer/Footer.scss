@@ -1,7 +1,15 @@
+// 🦶 FOOTER COMPONENT - PROFESSIONAL FOOD-TECH STYLING
+// =====================================================
+// Clean, modern footer with brand consistency
+// Fresh Sage Green: #87A96B, Citrus Burst: #FF8C42, Berry Purple: #9F7AEA
+// Golden Honey: #F6D55C, Pearl White: #FAFAFA, Charcoal Slate: #2D3748
+
 .footer {
   margin-top: 120px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  // OLD: background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2D3748 0%, #87A96B 100%); // NEW: Charcoal to Sage gradient
+  // OLD: color: white;
+  color: #FAFAFA; // NEW: Pearl White text
   position: relative;
 
   .whatsapp-float {

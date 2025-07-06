@@ -1,22 +1,59 @@
 @import "../../responsive.scss";
+
+// �️ MESS MANAGEMENT SYSTEM COLOR PALETTE
+// ==========================================
+// Designed for a modern cafeteria/food-tech application
+// Emphasizes freshness, appetite appeal, and clean UI
+
+// 🥗 PRIMARY COLORS (Food & Health Theme)
+// Fresh Sage Green: #87A96B (Primary brand color - fresh vegetables/healthy eating)
+// Warm Sunset Orange: #F4A460 (Secondary accent - warmth/appetite stimulation)
+// Crisp Lettuce: #E8F5E8 (Light background - clean/fresh feeling)
+
+// 🧑‍🍳 NEUTRAL COLORS (Professional & Clean)
+// Charcoal Slate: #2D3748 (Primary text - professional/readable)
+// Warm Gray: #718096 (Secondary text - softer contrast)
+// Pearl White: #FAFAFA (Card backgrounds - clean/minimal)
+
+// 🍊 ACCENT COLORS (Energy & Appeal)
+// Citrus Burst: #FF8C42 (CTA buttons - energetic/appetizing)
+// Berry Purple: #9F7AEA (Highlights - premium feel)
+// Golden Honey: #F6D55C (Success states - positive/sweet)
+
+// 🚨 SEMANTIC COLORS
+// Fresh Mint: #48CAE4 (Info/neutral states)
+// Tomato Red: #FF6B6B (Error states - natural food color)
+// Herb Green: #51CF66 (Success - natural/organic)
+
 .navbar {
   font-size: 23px;
-  border-bottom: 1px solid gray;
+  // OLD: border-bottom: 1px solid rgb(221, 221, 221);
+  // OLD: border-bottom: 1px solid #6B7280;
+  border-bottom: 1px solid #718096; // NEW: Warm Gray - subtle professional separation
   padding: 0 50px;
   display: flex;
   justify-content: space-between;
   height: 70px;
   align-items: center;
+  // OLD: background-color: #F4FFF9;
+  background-color: #FAFAFA; // NEW: Pearl White - clean, appetizing background
+  box-shadow: 0 2px 4px rgba(45, 55, 72, 0.1); // NEW: Subtle depth for modern feel
   .logo {
     height: 60px;
   }
   .gola {
     border-radius: 50%;
-    border: 1px solid black;
-    transition: transform 0.3s ease;
+    // OLD: border: 1px solid black;
+    // OLD: border: 1px solid #1E1E1E;
+    border: 2px solid #87A96B; // NEW: Fresh Sage Green - brand color for logo
+    transition: all 0.3s ease;
     z-index: 10;
+    box-shadow: 0 2px 8px rgba(135, 169, 107, 0.2); // NEW: Subtle brand-colored shadow
       &:hover {
         transform: scale(1.3);
+        // NEW: Enhanced hover with brand colors
+        border-color: #F4A460; // NEW: Warm Sunset Orange on hover
+        box-shadow: 0 4px 12px rgba(244, 164, 96, 0.3);
       }
     .navbar__logo {
       border-radius: 50%;
@@ -37,47 +74,95 @@
     }
     .scroll {
       font-weight: 800;
+      // OLD: color: #1E1E1E;
+      color: #2D3748; // NEW: Charcoal Slate - professional, readable navigation
       transition: all 0.4s ease-out;
+      position: relative;
       &:hover {
-        color: rgb(235, 184, 90);
-        text-decoration: underline;
+        // OLD: color: rgb(235, 184, 90);
+        // OLD: color: #FF914D;
+        color: #87A96B; // NEW: Fresh Sage Green - brand consistency
+        text-decoration: none; // Remove underline for cleaner look
+        transform: translateY(-2px); // NEW: Subtle lift effect
+      }
+      // NEW: Modern underline animation
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        // OLD: background: linear-gradient(90deg, #87A96B, #F4A460);
+        background-color: #87A96B; // NEW: Solid Fresh Sage Green - clean and simple
+        transition: width 0.3s ease;
+      }
+      &:hover::after {
+        width: 100%;
       }
     }
   }
   .Subscribe {
     cursor: pointer;
-    padding: 10px;
+    padding: 12px 20px; // NEW: More generous padding
     height: 45px;
     font-size: 17px;
-    border-radius: 10px;
-    background-color: rgb(248, 248, 175);
-    transition: transform 0.3s ease;
+    border-radius: 12px; // NEW: Subtle rounding for clean look
+    // OLD: background-color: rgb(248, 248, 175);
+    // OLD: background-color: #FF914D;
+    // OLD: background: linear-gradient(135deg, #FF8C42, #F4A460);
+    background-color: #FF8C42; // NEW: Solid Citrus Burst - clean and appetizing
+    // OLD: color: #F4FFF9;
+    color: #FAFAFA; // NEW: Pearl White text for contrast
+    font-weight: 600; // NEW: Slightly lighter weight for cleaner look
+    border: none;
+    letter-spacing: 0.3px; // NEW: Subtle letter spacing
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(255, 140, 66, 0.25); // NEW: Subtle shadow
     &:hover {
-      transform: scale(1.02);
+      transform: translateY(-1px); // NEW: Subtle lift
+      // OLD: background: linear-gradient(135deg, #F6D55C, #FF8C42);
+      background-color: #F4A460; // NEW: Warm Sunset Orange - single color hover
+      box-shadow: 0 4px 12px rgba(244, 164, 96, 0.3); // NEW: Warm glow
+    }
+    &:active {
+      transform: translateY(0); // NEW: Clean click feedback
     }
   }
   .buttons {
     display: flex;
     align-items: center;
     
-    .StudentRedirectButton {
+    .RedirectButton {
       @include sm {
         display: none;
       }
       display: flex;
-      color: white;
-      font-weight: bold;
+      // OLD: color: white;
+      // OLD: color: #F4FFF9;
+      color: #FAFAFA; // NEW: Pearl White - clean, readable text
+      font-weight: 600; // NEW: Slightly lighter for elegance
       align-items: center;
       justify-content: center;
       width: 130px;
       height: 50px;
-      background-color: rgb(129, 42, 42);
+      // OLD: background-color: rgb(129, 42, 42);
+      // OLD: background-color: #4CAF50;
+      // OLD: background: linear-gradient(135deg, #87A96B, #51CF66);
+      background-color: #87A96B; // NEW: Solid Fresh Sage Green - clean and natural
       padding: 10px 10px;
-      border-radius: 20px;
-      border: 2px solid rgb(136, 19, 19);;
-      transition: transform 0.3s ease;
+      border-radius: 12px; // NEW: Clean, modern rounding
+      // OLD: border: 2px solid rgb(136, 19, 19);
+      // OLD: border: 2px solid #4CAF50;
+      border: 2px solid #87A96B; // NEW: Fresh Sage Green border
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(135, 169, 107, 0.2); // NEW: Subtle shadow
       &:hover {
-        transform: scale(1.08);
+        transform: translateY(-1px); // NEW: Subtle lift
+        // OLD: background: linear-gradient(135deg, #51CF66, #9F7AEA);
+        background-color: #51CF66; // NEW: Solid Herb Green - clean hover
+        border-color: #51CF66; // NEW: Matching border
+        box-shadow: 0 4px 12px rgba(81, 207, 102, 0.25); // NEW: Clean green glow
       }
     }
     display: flex;
@@ -91,6 +176,9 @@
       gap: 10px;
       .name {
         font-weight: bold;
+        // OLD: color: #1E1E1E;
+        color: #2D3748; // NEW: Charcoal Slate - professional greeting text
+        font-size: 16px; // NEW: Slightly larger for better readability
       }
     }
     .button {
@@ -99,23 +187,51 @@
       }
       all: unset;
       height: 38px;
-      padding: 2px 10px;
+      padding: 8px 16px; // NEW: More balanced padding
       width: 72px;
-      border-radius: 10px;
-      background-color: rgb(235, 184, 90);
+      border-radius: 10px; // NEW: Clean, subtle rounding
+      // OLD: background-color: rgb(235, 184, 90);
+      // OLD: background-color: #FF914D;
+      // OLD: background: linear-gradient(135deg, #FF8C42, #F6D55C);
+      // OLD: background-color: #2D3748; // TOO DULL!
+      background-color: #9F7AEA; // NEW: Berry Purple - attractive and premium
+      // OLD: color: #2D3748;
+      color: #FAFAFA; // NEW: Pearl White text for contrast
+      font-weight: 600; // NEW: Slightly lighter weight
       cursor: pointer;
-      &:disabled{
-        cursor:not-allowed;
+      font-size: smaller;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 8px rgba(159, 122, 234, 0.3); // NEW: Beautiful purple shadow
+      border: 2px solid transparent; // NEW: For smooth hover transition
+      &:hover {
+        // OLD: background: linear-gradient(135deg, #F6D55C, #FF8C42);
+        // OLD: background-color: #718096; // TOO BORING!
+        background-color: #FF8C42; // NEW: Citrus Burst hover - energetic and appetizing
+        transform: translateY(-2px); // NEW: Enhanced lift
+        box-shadow: 0 6px 16px rgba(255, 140, 66, 0.4); // NEW: Bright orange glow
+        border-color: #FF8C42; // NEW: Matching border
       }
     }
     .hamburger {
       border: none;
       display: none;
       z-index: 2;
-      background-color: black;
+      // OLD: background-color: black;
+      // OLD: background-color: #1E1E1E;
+      // OLD: background: linear-gradient(135deg, #2D3748, #87A96B);
+      background-color: #2D3748; // NEW: Solid Charcoal Slate - clean professional
       border-radius: 50%;
+      transition: all 0.25s ease; // NEW: Smooth transitions
+      box-shadow: 0 2px 6px rgba(45, 55, 72, 0.2); // NEW: Subtle shadow
+      &:hover {
+        transform: scale(1.05); // NEW: Subtle hover
+        // OLD: background: linear-gradient(135deg, #87A96B, #9F7AEA);
+        background-color: #87A96B; // NEW: Solid Sage Green hover
+        box-shadow: 0 4px 10px rgba(135, 169, 107, 0.3); // NEW: Natural glow
+      }
       img {
         height: 50px;
+        filter: brightness(0) invert(1); // NEW: Ensure icon is white
       }
 
       @include sm {
@@ -124,62 +240,120 @@
     }
     .slide {
       position: absolute;
-      background-color: black;
-      color: white;
+      // OLD: background-color: black;
+      // OLD: background: linear-gradient(135deg, #1E1E1E, #8A2BE2);
+      // OLD: background: linear-gradient(135deg, #2D3748, #87A96B, #9F7AEA);
+      background-color: #2D3748; // NEW: Solid Charcoal Slate - clean mobile menu
+      // OLD: color: white;
+      // OLD: color: #F4FFF9;
+      color: #FAFAFA; // NEW: Pearl White for excellent contrast
       height: 50vh;
       width: 50%;
       top: 0;
       right: -50%;
-      transition: all 0.5s ease;
+      transition: all 0.4s ease;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       font-size: 24px;
       z-index: 1;
+      backdrop-filter: blur(10px); // NEW: Modern glass effect
+      border-left: 3px solid #87A96B; // NEW: Brand accent border
 
       &.active {
         right: 0;
+        box-shadow: -5px 0 20px rgba(45, 55, 72, 0.3); // NEW: Subtle shadow
       }
       .StudentRedirectButton1 {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 90px;
-        height: 40px;
+        width: 120px; // NEW: Slightly wider for better proportion
+        height: 45px; // NEW: Better height
         margin: 20px;
-        background-color: greenyellow;
-        padding: 10px 10px;
-        border-radius: 20px;
-        border: 2px solid rgb(139, 231, 1);
-        transition: transform 0.3s ease;
+        // OLD: background-color: greenyellow;
+        // OLD: background-color: #4CAF50;
+        // OLD: background: linear-gradient(135deg, #51CF66, #F6D55C);
+        background-color: #87A96B; // NEW: Solid Fresh Sage Green - clean mobile CTA
+        // OLD: color: #2D3748;
+        color: #FAFAFA; // NEW: Pearl White for clean contrast
+        font-weight: 600; // NEW: Slightly lighter weight
+        padding: 12px 16px; // NEW: Better padding
+        border-radius: 12px; // NEW: Clean rounding
+        // OLD: border: 2px solid rgb(139, 231, 1);
+        // OLD: border: 2px solid #4CAF50;
+        border: 2px solid #87A96B; // NEW: Fresh Sage Green border
+        transition: all 0.25s ease;
+        font-size: 14px; // NEW: Appropriate mobile size
+        box-shadow: 0 2px 8px rgba(135, 169, 107, 0.2); // NEW: Subtle shadow
         &:hover {
-          transform: scale(1.08);
+          transform: translateY(-1px); // NEW: Subtle lift
+          // OLD: background: linear-gradient(135deg, #F6D55C, #FF8C42);
+          background-color: #51CF66; // NEW: Solid Herb Green hover
+          border-color: #51CF66; // NEW: Matching border
+          box-shadow: 0 4px 12px rgba(81, 207, 102, 0.25); // NEW: Clean glow
         }
       }
       .hello1 {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        // OLD: color: #F4FFF9;
+        color: #FAFAFA; // NEW: Pearl White for mobile menu text
+        text-align: center; // NEW: Center align for better mobile UX
       }
 
       .harm {
         display: flex;
         flex-direction: column;
         gap: 30px;
+        align-items: center; // NEW: Center align mobile elements
       }
       .button1 {
         @include sm {
           gap: 10px;
           all: unset;
-          height: 30px;
-          padding: 5px 30px;
-          width: 60px;
-          border-radius: 10px;
-          background-color: rgb(235, 184, 90);
+          height: 40px; // NEW: Better mobile button height
+          padding: 12px 24px; // NEW: More generous mobile padding
+          width: 80px; // NEW: Better mobile width
+          border-radius: 10px; // NEW: Clean mobile rounding
+          // OLD: background-color: rgb(235, 184, 90);
+          // OLD: background-color: #FF914D;
+          // OLD: background: linear-gradient(135deg, #FF8C42, #F6D55C);
+          // OLD: background-color: #2D3748; // TOO DULL!
+          background-color: #9F7AEA; // NEW: Berry Purple - attractive mobile buttons
+          // OLD: color: #2D3748;
+          color: #FAFAFA; // NEW: Pearl White for clean contrast
+          font-weight: 600; // NEW: Slightly lighter weight
           cursor: pointer;
+          transition: all 0.25s ease;
+          box-shadow: 0 3px 8px rgba(159, 122, 234, 0.3); // NEW: Beautiful mobile shadow
+          font-size: 14px; // NEW: Appropriate mobile font size
+          border: 2px solid transparent; // NEW: For smooth hover transition
+          &:hover {
+            // OLD: background: linear-gradient(135deg, #F6D55C, #FF8C42);
+            // OLD: background-color: #718096; // TOO BORING!
+            background-color: #FF8C42; // NEW: Citrus Burst hover - energetic
+            transform: translateY(-2px); // NEW: Enhanced lift for mobile
+            box-shadow: 0 6px 16px rgba(255, 140, 66, 0.4); // NEW: Bright mobile glow
+            border-color: #FF8C42; // NEW: Matching border
+          }
         }
       }
     }
   }
+
+  .student-login {
+      // NEW: Student login button styling
+      background: linear-gradient(135deg, #4FD1C7 0%, #38B2AC 100%); // NEW: Teal gradient
+      color: white;
+      border: 2px solid transparent;
+      
+      &:hover {
+        background: linear-gradient(135deg, #38B2AC 0%, #319795 100%);
+        box-shadow: 0 6px 16px rgba(56, 178, 172, 0.4); // NEW: Teal glow
+        border-color: #4FD1C7; // NEW: Matching border
+      }
+    }
 }

@@ -115,7 +115,33 @@
     }
   }
  .feedbacks {
-  margin-top: 50px;
+  margin-top: 90px;
+  // NEW: Add scrollbar for feedback section
+  .inner{
+    max-height: 400px; // NEW: Limit height to trigger scrolling
+  overflow-y: auto; // NEW: Enable vertical scrolling
+  padding-right: 10px; // NEW: Space for scrollbar
+  
+  // NEW: Custom scrollbar styling
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #87A96B; // NEW: Fresh Sage Green scrollbar
+    border-radius: 4px;
+    
+    &:hover {
+      background: #6d8a56; // NEW: Darker on hover
+    }
+  }
+  }
+  
   h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;

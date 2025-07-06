@@ -1,10 +1,24 @@
 
 @import "../../responsive.scss";
+
+// 🌈 HOMEPAGE COLOR PALETTE - MESS MANAGEMENT SYSTEM
+// =====================================================
+// Fresh Sage Green: #87A96B (Primary brand)
+// Warm Sunset Orange: #F4A460 (Secondary accent)
+// Pearl White: #FAFAFA (Clean backgrounds)
+// Charcoal Slate: #2D3748 (Professional text)
+// Citrus Burst: #FF8C42 (Energetic CTAs)
+// Berry Purple: #9F7AEA (Premium highlights)
+// Golden Honey: #F6D55C (Success states)
+// Herb Green: #51CF66 (Natural success)
+// Crisp Lettuce: #E8F5E8 (Light backgrounds)
+
 html,
 body {
-   background-color: rgb(241, 249, 241);
-  // background-color: rgb(255, 255, 224);
-  // background-color: rgb(236, 236, 236);
+   // OLD: background-color: rgb(241, 249, 241);
+   background-color: #E8F5E8; // NEW: Crisp Lettuce - fresh, clean page background
+  // OLD: background-color: rgb(255, 255, 224);
+  // OLD: background-color: rgb(236, 236, 236);
   height: auto;
   min-height: 100vh;
   margin: 0;
@@ -41,7 +55,7 @@ body {
       position: absolute;
       z-index: 10;
       left: 75%;
-      top: 202%;
+      top: 240%;
       opacity: 0.5;
       // border-radius: 30%;
     }
@@ -55,7 +69,7 @@ body {
       position: absolute;
       z-index: 10;
       // left: 75%;
-      top:202%;
+      top:240%;
       opacity: 0.5;
       // border-radius: 30%;
     }
@@ -71,8 +85,7 @@ body {
       // left: 75%;
       top: 79%;
       left: 70%;
-      // right: 0%;
-      transform: rotate(280deg);
+      // right: 0%; 
       opacity: 0.5;
       // border-radius: 30%;
     }
