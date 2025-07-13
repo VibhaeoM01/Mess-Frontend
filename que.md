@@ -19,7 +19,7 @@ when to use which status code?
 500
 501 and all'
 
-
+Hashing is the process of converting the information into a key using a hash function. The original information cannot be retrieved from the hash key by any means. Generally, the hash keys are stored in the database and they are compared to check whether the original information matches or not. They are generally used to store the passwords for login. Some of the examples of a hashing algorithm are MD5, SHA256.
 
 ## 🎯 Project Overview
 
@@ -395,3 +395,10 @@ app.get('/protected-route', authenticateToken, (req, res) => {
 ---
 
 > **Remember:** Your struggles and solutions are proof of authenticity. Don't hide the challenges - embrace them as learning experiences! 🚀
+
+
+
+ 
+
+So I have project, in which mess manager will register. and it will go to get mess id, so it will generate ID and and manager will give to students to join the mess, but there would be many mess managers using this application for their convinience, so  it has some issue,  ideally, every mess manager should have a diff table, so that diff mess manager can work it, in short multi tenant, so how to do it.. 
+like when manager will signup new table must be created and then when he goes to generate mess ID,  then ID should get attached to table as primary key, so that, when student use it while login, then they connect to the table of respective mess manager

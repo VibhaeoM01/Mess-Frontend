@@ -85,7 +85,7 @@
 
 import React from "react";
 import { Line } from "react-chartjs-2";
-import axios from "axios";
+// import axios from "axios";
 import {
   Chart as ChartJS,
   LineElement,
@@ -183,6 +183,7 @@ function SentimentTrendsChart() {
         });
       } catch (err) {
         setChartData(null);
+        console.log(err);
       }
     };
     fetchTrends();

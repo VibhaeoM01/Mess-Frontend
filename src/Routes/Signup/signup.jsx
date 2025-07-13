@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./signup.scss";
-import { useAuth } from "../../context/AuthContext";
+// import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../../context/ToastContext";
 import apiRequest from "../../lib/apiRequest";
@@ -13,7 +13,7 @@ function Singup() {
   const [role, setRole] = useState("student");
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
+  // const { login } = useAuth();
   const navigate = useNavigate();
   const { addToast } = useToast();
 
