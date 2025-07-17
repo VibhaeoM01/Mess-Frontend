@@ -87,7 +87,7 @@ import image1 from "/assets/hero1.jpg";
 import image2 from "/assets/hero2.jpeg";
 import { useAuth } from "../../context/AuthContext";
 // import { useState } from "react";
-import { useSubscribe } from "../../context/SubscribeContext";
+// import { useSubscribe } from "../../context/SubscribeContext";
 
 const slides = [
   {
@@ -112,15 +112,15 @@ const slides = [
 ];
 
 function HeroSection() {
-  const { Subscribed, setSubscribed } = useSubscribe(false);
+  // const { Subscribed, setSubscribed } = useSubscribe(false);
   const { user } = useAuth();
   
-  const handleSubscribe = () => {
-    setSubscribed(true);
-    setTimeout(() => setSubscribed(false), 300000); // 5 minutes = 300,000 ms
-    // Optionally, redirect to payment page:
-    // window.open("https://buy.stripe.com/test_7sYcN53Z86A19fmbBnfUQ01", "_blank");
-  };
+  // const handleSubscribe = () => {
+  //   setSubscribed(true);
+  //   setTimeout(() => setSubscribed(false), 300000); // 5 minutes = 300,000 ms
+  //   // Optionally, redirect to payment page:
+  //   // window.open("https://buy.stripe.com/test_7sYcN53Z86A19fmbBnfUQ01", "_blank");
+  // };
   const settings = {
     dots: true,
     infinite: true,
@@ -150,7 +150,7 @@ function HeroSection() {
             </div>
           ))}
         </Slider>
-        {!user && (
+        {/* {!user && (
           <div className="hero-buttons">
             <div
               className="child1"
@@ -171,7 +171,7 @@ function HeroSection() {
               </a>
             </div>
           </div>
-        )}
+        )} */}
         {(!user || user.role === "mess_manager") && (
           <div className="hero-buttons">
             <div

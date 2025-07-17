@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import "./impact.scss";
-import apiRequest from "../../lib/apiRequest";
+// import apiRequest from "../../lib/apiRequest";
 function Impact() {
   const stats = [
     { per: "95%", d: "Student Satisfaction" },
@@ -9,27 +9,27 @@ function Impact() {
     { per: "40%", d: "Admin Efficiency Boost" },
   ];
 
-  const [val, setVal] = useState([]);
-  useEffect(() => {
-    const getdata = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const config = token
-          ? { headers: { Authorization: `Bearer ${token}` } }
-          : {};
-        const Value = await apiRequest.get(
-          "/feedbacks/feedback", // Using apiRequest with relative path
-          config
-        );
-        // console.log("API response:", Value.data);
-        setVal(Array.isArray(Value.data.data) ? Value.data.data : []);
-      } catch (err) {
-        console.log(err);
-        setVal([]); // fallback to empty array on error
-      }
-    };
-    getdata();
-  }, []);
+  // const [val, setVal] = useState([]);
+  // useEffect(() => {
+  //   const getdata = async () => {
+  //     try {
+  //       const token = localStorage.getItem("token");
+  //       const config = token
+  //         ? { headers: { Authorization: `Bearer ${token}` } }
+  //         : {};
+  //       const Value = await apiRequest.get(
+  //         "/feedbacks/feedback", // Using apiRequest with relative path
+  //         config
+  //       );
+  //       // console.log("API response:", Value.data);
+  //       setVal(Array.isArray(Value.data.data) ? Value.data.data : []);
+  //     } catch (err) {
+  //       console.log(err);
+  //       setVal([]); // fallback to empty array on error
+  //     }
+  //   };
+  //   getdata();
+  // }, []);
   // const firstWithComment = val.find(
   //   (item) => item.comment && item.studentId.name == "student"
   // );

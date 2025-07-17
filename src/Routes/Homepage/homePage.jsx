@@ -29,12 +29,12 @@ function HomePage() {
 
   return (
     <div className="homePage">
-  <div className="image">
+  {/* <div className="image">
   <img src="/assets/home1left.png" alt="" />
   </div>
   <div className="image1">
-  <img src="/assets/home1right.png" alt="" />
-  </div> 
+  <img src="/assets/home1right.png" alt="" /> */}
+  {/* </div>  */}
       <Chatbot />
       <HeroSection />
       <ShowCard />
