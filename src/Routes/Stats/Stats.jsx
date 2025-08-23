@@ -138,7 +138,7 @@ function SentimentTrendsChart() {
       const token = localStorage.getItem("token");
       try {
         const res = await apiRequest.get(
-          " feedbacks/sentiment-trends",
+          "/feedbacks/sentiment-trends",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

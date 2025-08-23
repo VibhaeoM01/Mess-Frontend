@@ -29,6 +29,7 @@ function MessPage() {
       } catch (err) {
         setFeedback([]);
         setMealCounts(null);
+        console.log(err);
       }
     };
     fetchData();
@@ -109,11 +110,9 @@ function MessPage() {
         })}
       </div>
       </div>
-      <div className="container">
-        <div className="announcement" onClick={() => nav("/mess_manager/ann")}>
+       <div className="announcement" onClick={() => nav("/mess_manager/ann")}>
           Add Announcement
         </div>
-      </div>
       <div className="preBookcount">
         <h2>Pre-Bookings</h2>
         {mealCounts ? (
@@ -131,7 +130,7 @@ function MessPage() {
           <p>No data</p>
         )}
       </div>
-      <div className="container">
+      {/* <div className="container"> */}
         {allMenus.length == 0 && (
           <div className="stats" onClick={() => nav("/mess_manager/stats")}>
             Add Menu
@@ -140,7 +139,10 @@ function MessPage() {
         <div className="stats" onClick={() => nav("/mess_manager/stats")}>
           Stats
         </div>
-      </div>
+        <div className="stats analytics-button" onClick={() => nav("/mess_manager/analytics")}>
+          Meal Analytics
+        </div>
+      {/* </div> */}
       <div className="all-menus">
         <h2>Complete Menu</h2>
         {allMenus.length > 0 ? (

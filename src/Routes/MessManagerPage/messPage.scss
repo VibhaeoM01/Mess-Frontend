@@ -10,11 +10,13 @@
       justify-content: center;
       margin: 20px;
     } 
-  .container{
-     display: flex;
-    justify-content: end;
-    margin-right: 20px;
-    .announcement{
+  // .container{
+  //    display: flex;
+  //   justify-content: end;
+  //   // margin-right: 20px;
+    
+  // }
+  .announcement{
       width: fit-content;
       background-color: rgb(169, 166, 199);
       color: white;
@@ -24,13 +26,8 @@
       border-radius: 10px;
       margin-bottom: 15 px;
     }
-  }
-  .container {
-    display: flex;
-    justify-content: end;
-    margin-right: 20px;
+  
     .stats {
-      //   border: 1px solid black;
       width: fit-content;
       cursor: pointer;
       background-color: rgb(47, 234, 47);
@@ -38,9 +35,18 @@
       font-weight: 900;
       padding: 10px 20px;
       border-radius: 10px;
-      margin-bottom: 15 px;
+      margin-bottom: 15px;
+      margin-right: 10px;
+      display: inline-block;
+      
+      &.analytics-button {
+        background-color: #4b7bec;
+        
+        &:hover {
+          background-color: #3867d6;
+        }
+      }
     }
-  }
   .all-menus {
     h2 {
       margin-bottom: 30px;

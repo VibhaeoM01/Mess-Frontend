@@ -19,6 +19,7 @@ import FreeTrial from "./Routes/FreeTrial/FreeTrial.jsx";
 import { ToastProvider } from "./context/ToastContext";
 import { MessProvider } from "./context/MessContext";
 import StripeSuccess from "./components/StripeSuccess/StripeSuccess.jsx";
+import AnalyticsDashboard from "./Routes/AnalyticsDashboard/analyticsDashboard.jsx";
 function App() {
   const { user, loading } = useAuth();
   if (loading) {
@@ -91,6 +92,22 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["mess_manager", "super_admin"]}>
               <Stats />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/mess_manager/analytics"
+          element={
+            <ProtectedRoute allowedRoles={["mess_manager", "super_admin"]}>
+              <AnalyticsDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/mess_manager/analytics/:messId"
+          element={
+            <ProtectedRoute allowedRoles={["mess_manager", "super_admin"]}>
+              <AnalyticsDashboard />
             </ProtectedRoute>
           }
         />
